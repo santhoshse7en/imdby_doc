@@ -1,6 +1,8 @@
 [![PyPI Version](https://img.shields.io/pypi/v/imdby.svg)](https://pypi.org/project/imdby)
 [![Coverage Status](https://coveralls.io/repos/github/santhoshse7en/imdby/badge.svg?branch=master)](https://coveralls.io/github/santhoshse7en/imdby?branch=master)
 
+## Getting started
+
 ## Welcome to imdby
 
 imdby is a Python3 library! [View on Github here](https://github.com/santhoshse7en/imdby).

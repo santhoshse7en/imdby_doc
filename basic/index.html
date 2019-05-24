@@ -75,6 +75,12 @@
         
             <li><a class="toctree-l3" href="#extracting-crtic-reviews-info">Extracting Crtic Reviews Info</a></li>
         
+            <li><a class="toctree-l3" href="#search-person-name-person-id">Search Person Name &amp; Person ID</a></li>
+        
+            <li><a class="toctree-l3" href="#search-title-name-person-id">Search Title Name &amp; Person ID</a></li>
+        
+            <li><a class="toctree-l3" href="#search-company-name-person-id">Search Company Name &amp; Person ID</a></li>
+        
         </ul>
     
 
@@ -213,6 +219,80 @@
 </code></pre>
 
 <p><img alt="crdf" src="https://user-images.githubusercontent.com/47944792/58313556-7a2d6680-7e2b-11e9-99b0-4bc1e0d115a6.PNG" /></p>
+<h3 id="search-person-name-person-id">Search Person Name &amp; Person ID</h3>
+<p>You may also provide configuration parameters like text to create an instance of the IMDb class.</p>
+<pre><code class="Python">&gt;&gt;&gt; from imdby.search_person import imdb
+
+&gt;&gt;&gt; person = imdb('mouli')
+</code></pre>
+
+<p><strong>Manual Person Name selection done</strong></p>
+<p><img alt="pse" src="https://user-images.githubusercontent.com/47944792/58333901-0b1c3600-7e5c-11e9-846e-e5139aa8ae51.PNG" /></p>
+<p>IMDb movie search person source has a set of infos like.</p>
+<ul>
+<li>Person Name</li>
+<li>Person ID</li>
+</ul>
+<p>The output of search_person directory.</p>
+<pre><code class="Python">&gt;&gt;&gt; print(dir(person))
+</code></pre>
+
+<p><img alt="pdir" src="https://user-images.githubusercontent.com/47944792/58333783-d5774d00-7e5b-11e9-8848-ef9dd3dce671.PNG" /></p>
+<p><strong>Example of Extracting Person ID</strong></p>
+<pre><code class="Python">&gt;&gt;&gt; person_person_id
+
+'nm1442514'
+</code></pre>
+
+<h3 id="search-title-name-person-id">Search Title Name &amp; Person ID</h3>
+<p>You may also provide configuration parameters like text to create an instance of the IMDb class.</p>
+<pre><code class="Python">&gt;&gt;&gt; from imdby.search_title import imdb
+
+&gt;&gt;&gt; title = imdb('entiran')
+</code></pre>
+
+<p><strong>Manual Title Name selection done</strong></p>
+<p><img alt="tse" src="https://user-images.githubusercontent.com/47944792/58334200-a7ded380-7e5c-11e9-87f9-709c24fb3634.PNG" /></p>
+<p>IMDb movie search title source has a set of infos like.</p>
+<ul>
+<li>Title Name</li>
+<li>Title ID</li>
+</ul>
+<p>The output of search_title directory.</p>
+<pre><code class="Python">&gt;&gt;&gt; print(dir(title))
+</code></pre>
+
+<p><img alt="tdir" src="https://user-images.githubusercontent.com/47944792/58334175-9bf31180-7e5c-11e9-8e67-f7a4f94d8a5a.PNG" /></p>
+<p><strong>Example of Extracting Title ID</strong></p>
+<pre><code class="Python">&gt;&gt;&gt; title_title_id
+
+'tt1305797'
+</code></pre>
+
+<h3 id="search-company-name-person-id">Search Company Name &amp; Person ID</h3>
+<p>You may also provide configuration parameters like text to create an instance of the IMDb class.</p>
+<pre><code class="Python">&gt;&gt;&gt; from imdby.search_company import imdb
+
+&gt;&gt;&gt; company = imdb('warner')
+</code></pre>
+
+<p><strong>Manual Title Name selection done</strong></p>
+<p><img alt="cse" src="https://user-images.githubusercontent.com/47944792/58334557-6d296b00-7e5d-11e9-92f9-dd888f0b0284.PNG" /></p>
+<p>IMDb movie search company source has a set of infos like.</p>
+<ul>
+<li>Company Name</li>
+<li>Company ID</li>
+</ul>
+<p>The output of search_company directory.</p>
+<pre><code class="Python">&gt;&gt;&gt; print(dir(company))
+</code></pre>
+
+<p><img alt="cdir" src="https://user-images.githubusercontent.com/47944792/58334535-64389980-7e5d-11e9-8fe8-5cdb8d800111.PNG" /></p>
+<p><strong>Example of Extracting Company ID</strong></p>
+<pre><code class="Python">&gt;&gt;&gt; company_company_id
+
+'co0423665'
+</code></pre>
               
             </div>
           </div>

@@ -73,6 +73,8 @@
         
             <li><a class="toctree-l3" href="#extracting-user-reviews-info">Extracting User Reviews Info</a></li>
         
+            <li><a class="toctree-l3" href="#extracting-crtic-reviews-info">Extracting Crtic Reviews Info</a></li>
+        
         </ul>
     
 
@@ -193,6 +195,24 @@
 </code></pre>
 
 <p><img alt="urdf" src="https://user-images.githubusercontent.com/47944792/58304563-72ad9380-7e12-11e9-99cd-7a1fae184905.PNG" /></p>
+<h3 id="extracting-crtic-reviews-info">Extracting Crtic Reviews Info</h3>
+<p>You may also provide configuration parameters like titleid to create an instance of the IMDb class.</p>
+<pre><code class="Python">&gt;&gt;&gt; from imdby.critic_reviews import imdb
+
+&gt;&gt;&gt; critic_reviews = imdb('tt4154796')
+</code></pre>
+
+<p>Every IMDb movie critic_reviews source has a set of infos like.</p>
+<ul>
+<li>User Reviews</li>
+</ul>
+<p>The output of critic_reviews directory.</p>
+<p><img alt="crdir" src="https://user-images.githubusercontent.com/47944792/58313533-6a158700-7e2b-11e9-8f82-401994d728e3.PNG" /></p>
+<p><strong>Example of Extracting Critic Reviews for the Movie</strong></p>
+<pre><code class="Python">&gt;&gt;&gt; critic_reviews.critic_reviews_df.head()
+</code></pre>
+
+<p><img alt="crdf" src="https://user-images.githubusercontent.com/47944792/58313556-7a2d6680-7e2b-11e9-99b0-4bc1e0d115a6.PNG" /></p>
               
             </div>
           </div>

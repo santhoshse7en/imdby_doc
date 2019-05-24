@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Usage - imdby</title>
+  <title>Tutorials - imdby</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Usage";
-    var mkdocs_page_input_path = "usage.md";
+    var mkdocs_page_name = "Tutorials";
+    var mkdocs_page_input_path = "basic.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -65,19 +65,20 @@
           
             <li class="toctree-l1 current">
 		
-    <a class="current" href="./">Usage</a>
+    <a class="current" href="./">Tutorials</a>
     <ul class="subnav">
             
     <li class="toctree-l2"><a href="#quickstart">Quickstart</a></li>
     
         <ul>
         
-            <li><a class="toctree-l3" href="#building-a-imdb-source">Building a IMDb source</a></li>
+            <li><a class="toctree-l3" href="#extracting-imdb-movie-information">Extracting IMDb Movie Information</a></li>
+        
+            <li><a class="toctree-l3" href="#extracting-external-sites-info">Extracting External Sites Info</a></li>
+        
+            <li><a class="toctree-l3" href="#extracting-user-reviews-info">Extracting User Reviews Info</a></li>
         
         </ul>
-    
-
-    <li class="toctree-l2"><a href="#extracting-information">Extracting Information</a></li>
     
 
     </ul>
@@ -110,7 +111,7 @@
     
       
     
-    <li>Usage</li>
+    <li>Tutorials</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -122,9 +123,10 @@
               
                 <h2 id="quickstart">Quickstart</h2>
 <p>Eager to get started? This page gives a good introduction in how to get started with imdby. This assumes you already have imdby installed. If you do not, head over to the Installation section.</p>
-<h3 id="building-a-imdb-source">Building a IMDb source</h3>
+<p><strong>Building a IMDb source</strong></p>
 <p>Source objects are an abstraction of online multi-media content websites <a href="https://www.imdb.com/">IMDb</a></p>
-<p>Building a Source will extract its movie, cast_and_crew, plot, plot_keywords, company, parental_guide for you</p>
+<p>Building a Source will extract its movie, cast_and_crew, plot, plot_keywords, company, parental_guide, techincal_spec, release_info, taglines, external_sites, user_reviews for you</p>
+<h3 id="extracting-imdb-movie-information">Extracting IMDb Movie Information</h3>
 <p>You may also provide configuration parameters like titleid to create an instance of the IMDb class.</p>
 <pre><code class="Python">&gt;&gt;&gt; from imdby.imdb import imdb
 
@@ -133,23 +135,64 @@
 
 <p>Every IMDb movie source has a set of infos like.</p>
 <ul>
-<li>Title                                                                         </li>
-<li>Title ID</li>
-<li>Rating</li>
-<li>Metascore</li>
-<li>Budget</li>
-<li>Genre</li>
+<li>Basic Movie Information</li>
 <li>Plot</li>
-<li>Gross USA</li>
+<li>Plot Keywords</li>
+<li>Cast and Crew</li>
+<li>Company</li>
+<li>Release Info</li>
+<li>Taglines</li>
+<li>Parental Guide</li>
+<li>Technical Spec</li>
 </ul>
-<p>and soon...</p>
-<p>The following examples assume that a titleid has been initialized and built directory.</p>
-<p><img alt="dir" src="https://user-images.githubusercontent.com/47944792/58084265-2b3bc300-7bd8-11e9-9169-cc60542593f1.PNG" /></p>
-<h2 id="extracting-information">Extracting Information</h2>
+<p>The output of details directory.</p>
+<p><img alt="dir" src="https://user-images.githubusercontent.com/47944792/58303052-eb5d2180-7e0b-11e9-82c1-14627ee73ca3.PNG" /></p>
+<p><strong>Example of Extracting Movie Title</strong></p>
 <pre><code class="Python">&gt;&gt;&gt; details.title
 
 'Avengers: Endgame'
 </code></pre>
+
+<h3 id="extracting-external-sites-info">Extracting External Sites Info</h3>
+<p>You may also provide configuration parameters like titleid to create an instance of the IMDb class.</p>
+<pre><code class="Python">&gt;&gt;&gt; from imdby.external_sites import imdb
+
+&gt;&gt;&gt; external_sites = imdb('tt4154796')
+</code></pre>
+
+<p>Every IMDb movie external_sites source has a set of infos like.</p>
+<ul>
+<li>Official Sites</li>
+<li>Miscellaneous Sites</li>
+<li>Photographs</li>
+<li>Video Clips and Trailers</li>
+</ul>
+<p>The output of external_sites directory.</p>
+<p><img alt="esdir" src="https://user-images.githubusercontent.com/47944792/58304230-0da56e00-7e11-11e9-8b3a-823f4cbff1d6.PNG" /></p>
+<p><strong>Example of Extracting Movie Official Sites</strong></p>
+<pre><code class="Python">&gt;&gt;&gt; external_sites.official_sites_df.head()
+</code></pre>
+
+<p><img alt="esdf" src="https://user-images.githubusercontent.com/47944792/58304291-48a7a180-7e11-11e9-9f7f-2ab1c252ec0e.PNG" /></p>
+<h3 id="extracting-user-reviews-info">Extracting User Reviews Info</h3>
+<p>You may also provide configuration parameters like titleid to create an instance of the IMDb class.</p>
+<pre><code class="Python">&gt;&gt;&gt; from imdby.user_reviews import imdb
+
+&gt;&gt;&gt; user_reviews = imdb('tt4154796')
+</code></pre>
+
+<p>Every IMDb movie user_reviews source has a set of infos like.</p>
+<ul>
+<li>User Reviews</li>
+<li>User Reviews Sentiment Analysis</li>
+</ul>
+<p>The output of user_reviews directory.</p>
+<p><img alt="urdir" src="https://user-images.githubusercontent.com/47944792/58304429-d2576f00-7e11-11e9-9d92-6c1ee010d003.PNG" /></p>
+<p><strong>Example of Extracting User Reviews for the Movie</strong></p>
+<pre><code class="Python">&gt;&gt;&gt; user_reviews.user_reviews_df.head()
+</code></pre>
+
+<p><img alt="urdf" src="https://user-images.githubusercontent.com/47944792/58304563-72ad9380-7e12-11e9-99cd-7a1fae184905.PNG" /></p>
               
             </div>
           </div>

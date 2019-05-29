@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Tutorials - imdby</title>
+  <title>Usage - imdby</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Tutorials";
-    var mkdocs_page_input_path = "basic.md";
+    var mkdocs_page_name = "Usage";
+    var mkdocs_page_input_path = "usage.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -60,26 +60,34 @@
           
             <li class="toctree-l1 current">
 		
-    <a class="current" href="./">Tutorials</a>
+    <a class="current" href="./">Usage</a>
     <ul class="subnav">
             
     <li class="toctree-l2"><a href="#quickstart">Quickstart</a></li>
     
         <ul>
         
-            <li><a class="toctree-l3" href="#extracting-imdb-movie-information">Extracting IMDb Movie Information</a></li>
+            <li><a class="toctree-l3" href="#imdb-movie-information">IMDb Movie Information</a></li>
         
-            <li><a class="toctree-l3" href="#extracting-external-sites-info">Extracting External Sites Info</a></li>
+            <li><a class="toctree-l3" href="#external-sites-info">External Sites Info</a></li>
         
-            <li><a class="toctree-l3" href="#extracting-user-reviews-info">Extracting User Reviews Info</a></li>
+            <li><a class="toctree-l3" href="#user-reviews-info">User Reviews Info</a></li>
         
-            <li><a class="toctree-l3" href="#extracting-crtic-reviews-info">Extracting Crtic Reviews Info</a></li>
+            <li><a class="toctree-l3" href="#critic-reviews-info">Critic Reviews Info</a></li>
         
             <li><a class="toctree-l3" href="#search-person-name-person-id">Search Person Name &amp; Person ID</a></li>
         
-            <li><a class="toctree-l3" href="#search-title-name-person-id">Search Title Name &amp; Person ID</a></li>
+            <li><a class="toctree-l3" href="#search-title-name-title-id">Search Title Name &amp; Title ID</a></li>
         
-            <li><a class="toctree-l3" href="#search-company-name-person-id">Search Company Name &amp; Person ID</a></li>
+            <li><a class="toctree-l3" href="#search-company-name-company-id">Search Company Name &amp; Company ID</a></li>
+        
+            <li><a class="toctree-l3" href="#upcoming-releases-for-selected-regions">Upcoming Releases for Selected Regions</a></li>
+        
+            <li><a class="toctree-l3" href="#trending-now-in-india">Trending Now in India</a></li>
+        
+            <li><a class="toctree-l3" href="#imdb-charts">IMDb Charts</a></li>
+        
+            <li><a class="toctree-l3" href="#top-india-charts">Top India Charts</a></li>
         
         </ul>
     
@@ -119,7 +127,7 @@
     
       
     
-    <li>Tutorials</li>
+    <li>Usage</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -134,7 +142,7 @@
 <p><strong>Building a IMDb source</strong></p>
 <p>Source objects are an abstraction of online multi-media content websites <a href="https://www.imdb.com/">IMDb</a></p>
 <p>Building a Source will extract its movie, cast_and_crew, plot, plot_keywords, company, parental_guide, techincal_spec, release_info, taglines, external_sites, user_reviews for you</p>
-<h3 id="extracting-imdb-movie-information">Extracting IMDb Movie Information</h3>
+<h3 id="imdb-movie-information">IMDb Movie Information</h3>
 <p>You may also provide configuration parameters like titleid to create an instance of the IMDb class.</p>
 <pre><code class="Python">&gt;&gt;&gt; from imdby.imdb import imdb
 
@@ -161,7 +169,7 @@
 'Avengers: Endgame'
 </code></pre>
 
-<h3 id="extracting-external-sites-info">Extracting External Sites Info</h3>
+<h3 id="external-sites-info">External Sites Info</h3>
 <p>You may also provide configuration parameters like titleid to create an instance of the IMDb class.</p>
 <pre><code class="Python">&gt;&gt;&gt; from imdby.external_sites import imdb
 
@@ -182,7 +190,7 @@
 </code></pre>
 
 <p><img alt="esdf" src="https://user-images.githubusercontent.com/47944792/58304291-48a7a180-7e11-11e9-9f7f-2ab1c252ec0e.PNG" /></p>
-<h3 id="extracting-user-reviews-info">Extracting User Reviews Info</h3>
+<h3 id="user-reviews-info">User Reviews Info</h3>
 <p>You may also provide configuration parameters like titleid to create an instance of the IMDb class.</p>
 <pre><code class="Python">&gt;&gt;&gt; from imdby.user_reviews import imdb
 
@@ -201,7 +209,7 @@
 </code></pre>
 
 <p><img alt="urdf" src="https://user-images.githubusercontent.com/47944792/58304563-72ad9380-7e12-11e9-99cd-7a1fae184905.PNG" /></p>
-<h3 id="extracting-crtic-reviews-info">Extracting Crtic Reviews Info</h3>
+<h3 id="critic-reviews-info">Critic Reviews Info</h3>
 <p>You may also provide configuration parameters like titleid to create an instance of the IMDb class.</p>
 <pre><code class="Python">&gt;&gt;&gt; from imdby.critic_reviews import imdb
 
@@ -238,13 +246,17 @@
 </code></pre>
 
 <p><img alt="pdir" src="https://user-images.githubusercontent.com/47944792/58333783-d5774d00-7e5b-11e9-8848-ef9dd3dce671.PNG" /></p>
-<p><strong>Example of Extracting Person ID</strong></p>
-<pre><code class="Python">&gt;&gt;&gt; person_person_id
+<p><strong>Example of Extracting Person Name &amp; Person ID</strong></p>
+<pre><code class="Python">&gt;&gt;&gt; person.person_name
+
+'S.S. Rajamouli'
+
+&gt;&gt;&gt; person.person_id
 
 'nm1442514'
 </code></pre>
 
-<h3 id="search-title-name-person-id">Search Title Name &amp; Person ID</h3>
+<h3 id="search-title-name-title-id">Search Title Name &amp; Title ID</h3>
 <p>You may also provide configuration parameters like text to create an instance of the IMDb class.</p>
 <pre><code class="Python">&gt;&gt;&gt; from imdby.search_title import imdb
 
@@ -263,13 +275,17 @@
 </code></pre>
 
 <p><img alt="tdir" src="https://user-images.githubusercontent.com/47944792/58334175-9bf31180-7e5c-11e9-8e67-f7a4f94d8a5a.PNG" /></p>
-<p><strong>Example of Extracting Title ID</strong></p>
-<pre><code class="Python">&gt;&gt;&gt; title_title_id
+<p><strong>Example of Extracting Title Name &amp; Title ID</strong></p>
+<pre><code class="Python">&gt;&gt;&gt; title.title_name
+
+'Enthiran'
+
+&gt;&gt;&gt; title.title_id
 
 'tt1305797'
 </code></pre>
 
-<h3 id="search-company-name-person-id">Search Company Name &amp; Person ID</h3>
+<h3 id="search-company-name-company-id">Search Company Name &amp; Company ID</h3>
 <p>You may also provide configuration parameters like text to create an instance of the IMDb class.</p>
 <pre><code class="Python">&gt;&gt;&gt; from imdby.search_company import imdb
 
@@ -288,11 +304,144 @@
 </code></pre>
 
 <p><img alt="cdir" src="https://user-images.githubusercontent.com/47944792/58334535-64389980-7e5d-11e9-8fe8-5cdb8d800111.PNG" /></p>
-<p><strong>Example of Extracting Company ID</strong></p>
-<pre><code class="Python">&gt;&gt;&gt; company_company_id
+<p><strong>Example of Extracting Company Name &amp; Company ID</strong></p>
+<pre><code class="Python">&gt;&gt;&gt; company.company_name
+
+'Warner'
+
+&gt;&gt;&gt; company.company_id
 
 'co0423665'
 </code></pre>
+
+<h3 id="upcoming-releases-for-selected-regions">Upcoming Releases for Selected Regions</h3>
+<p>You won't need to provide configuration parameters like text to create an instance of the IMDb class.</p>
+<pre><code class="Python">&gt;&gt;&gt; from imdby.upcompany_releases import imdb
+
+&gt;&gt;&gt; upcompany_releases = imdb()
+</code></pre>
+
+<p><strong>Manual Country Name selection done</strong></p>
+<p><img alt="urse" src="https://user-images.githubusercontent.com/47944792/58538033-e506e500-8211-11e9-9dc0-b76e6fdd9214.PNG" /></p>
+<p>Upcoming Releases has a set of info. &amp; DataFrames like.</p>
+<ul>
+<li>Country Name</li>
+<li>Country Code</li>
+<li>Upcoming Releases df</li>
+</ul>
+<p>The output of upcompany_releases directory.</p>
+<pre><code class="Python">&gt;&gt;&gt; print(dir(upcompany_releases))
+</code></pre>
+
+<p><img alt="ucrdir" src="https://user-images.githubusercontent.com/47944792/58538621-24820100-8213-11e9-9996-55be8797e0ab.PNG" /></p>
+<p><strong>Example of Extracting Country Name &amp; Country Code</strong></p>
+<pre><code class="Python">&gt;&gt;&gt; upcompany_releases.country_name
+
+'India'
+
+&gt;&gt;&gt; upcompany_releases.country_code
+
+'in'
+</code></pre>
+
+<p><strong>Example of Extraction Upcoming Release for India DataFrame</strong></p>
+<pre><code class="Python">&gt;&gt;&gt; upcompany_releases.upcompany_releases_df.head()
+</code></pre>
+
+<p><img alt="ucrdf" src="https://user-images.githubusercontent.com/47944792/58538310-7d04ce80-8212-11e9-9344-83e0cc5d2526.PNG" /></p>
+<h3 id="trending-now-in-india">Trending Now in India</h3>
+<p>You won't need to provide configuration parameters like text to create an instance of the IMDb class.</p>
+<pre><code class="Python">&gt;&gt;&gt; from imdby.trending_now_in_india import imdb
+
+&gt;&gt;&gt; trending_now_in_india = imdb()
+</code></pre>
+
+<p>Trending Now in India has a set of Data Frames like.</p>
+<ul>
+<li>Popular Global</li>
+<li>Popular India</li>
+<li>Popular Tamil</li>
+<li>Popular Telugu</li>
+<li>Popular Hindi</li>
+</ul>
+<p>The output of trending_now_in_india directory.</p>
+<pre><code class="Python">&gt;&gt;&gt; print(dir(trending_now_in_india))
+</code></pre>
+
+<p><img alt="tredir" src="https://user-images.githubusercontent.com/47944792/58555910-59ed1580-8238-11e9-81cf-2adadbaaacd5.PNG" /></p>
+<p><strong>Example of Extracting Tamil Trending Movies URL</strong></p>
+<pre><code class="Python">&gt;&gt;&gt; trending_now_in_india.popular_tamil_url
+
+'https://www.imdb.com/india/tamil'
+</code></pre>
+
+<p><strong>Example of Extraction Trending Tamil Movies DataFrame</strong></p>
+<pre><code class="Python">&gt;&gt;&gt; trending_now_in_india.popular_tamil_movies_df
+</code></pre>
+
+<p><img alt="tadf" src="https://user-images.githubusercontent.com/47944792/58556177-f57e8600-8238-11e9-83e5-ce70e6575d01.PNG" /></p>
+<h3 id="imdb-charts">IMDb Charts</h3>
+<p>You won't need to provide configuration parameters like text to create an instance of the IMDb class.</p>
+<pre><code class="Python">&gt;&gt;&gt; from imdby.imdb_charts import imdb
+
+&gt;&gt;&gt; imdb_charts = imdb()
+</code></pre>
+
+<p>IMDb Charts has a set of Data Frames like.</p>
+<ul>
+<li>Top Rated Movies</li>
+<li>Top Rated English Movies</li>
+<li>Top Rates TV Shows</li>
+<li>Lowest Rated Movies</li>
+<li>Most Popular Movies</li>
+<li>Most Popular TV Shows</li>
+</ul>
+<p>The output of imdb_charts directory.</p>
+<pre><code class="Python">&gt;&gt;&gt; print(dir(imdb_charts))
+</code></pre>
+
+<p><img alt="icdir" src="https://user-images.githubusercontent.com/47944792/58540048-40d36d00-8216-11e9-8e55-62bbaa0a7843.PNG" /></p>
+<p><strong>Example of Extracting Top Box Office Movies URL</strong></p>
+<pre><code class="Python">&gt;&gt;&gt; imdb_charts.top_box_office_us_url
+
+'https://www.imdb.com/chart/boxoffice'
+</code></pre>
+
+<p><strong>Example of Extraction Top Box Office DataFrame</strong></p>
+<pre><code class="Python">&gt;&gt;&gt; imdb_charts.top_rated_english_movies_df
+</code></pre>
+
+<p><img alt="icbdf" src="https://user-images.githubusercontent.com/47944792/58556283-3f676c00-8239-11e9-9c62-df0120699372.PNG" /></p>
+<h3 id="top-india-charts">Top India Charts</h3>
+<p>You won't need to provide configuration parameters like text to create an instance of the IMDb class.</p>
+<pre><code class="Python">&gt;&gt;&gt; from imdby.top_india_charts import imdb
+
+&gt;&gt;&gt; top_india_charts = imdb()
+</code></pre>
+
+<p>Top India Charts has a set of Data Frames like.</p>
+<ul>
+<li>Top Rated Indian Movies</li>
+<li>Top Rated Tamil Movies</li>
+<li>Top Rated Malayalam Movies</li>
+<li>Top Rated Telugu Movies</li>
+</ul>
+<p>The output of top_india_charts directory.</p>
+<pre><code class="Python">&gt;&gt;&gt; print(dir(top_india_charts))
+</code></pre>
+
+<p><img alt="tidir" src="https://user-images.githubusercontent.com/47944792/58556589-ffed4f80-8239-11e9-9a52-7940223fc778.PNG" /></p>
+<p><strong>Example of Extracting Top Rated Tamil Movies URL</strong></p>
+<pre><code class="Python">&gt;&gt;&gt; top_india_charts.top_rated_tamil_movies_url
+
+'https://www.imdb.com/india/top-rated-tamil-movies'
+</code></pre>
+
+<p><strong>Example of Extraction Top Rated Tamil Movies DataFrame</strong></p>
+<pre><code class="Python">&gt;&gt;&gt; top_india_charts.top_rated_tamil_movies_df.head()
+</code></pre>
+
+<p><img alt="tidf" src="https://user-images.githubusercontent.com/47944792/58556603-08de2100-823a-11e9-81be-a8212bc465c5.PNG" /></p>
               
             </div>
           </div>

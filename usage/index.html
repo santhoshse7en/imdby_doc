@@ -318,7 +318,7 @@
 <p>You won't need to provide configuration parameters like text to create an instance of the IMDb class.</p>
 <pre><code class="Python">&gt;&gt;&gt; from imdby.upcoming_releases import imdb
 
-&gt;&gt;&gt; upcompany_releases = imdb()
+&gt;&gt;&gt; upcoming_releases = imdb()
 </code></pre>
 
 <p><strong>Manual Country Name selection done</strong></p>
@@ -329,23 +329,23 @@
 <li>Country Code</li>
 <li>Upcoming Releases df</li>
 </ul>
-<p>The output of upcompany_releases directory.</p>
-<pre><code class="Python">&gt;&gt;&gt; print(dir(upcompany_releases))
+<p>The output of upcoming_releases directory.</p>
+<pre><code class="Python">&gt;&gt;&gt; print(dir(upcoming_releases))
 </code></pre>
 
 <p><img alt="ucrdir" src="https://user-images.githubusercontent.com/47944792/58538621-24820100-8213-11e9-9996-55be8797e0ab.PNG" /></p>
 <p><strong>Example of Extracting Country Name &amp; Country Code</strong></p>
-<pre><code class="Python">&gt;&gt;&gt; upcompany_releases.country_name
+<pre><code class="Python">&gt;&gt;&gt; upcoming_releases.country_name
 
 'India'
 
-&gt;&gt;&gt; upcompany_releases.country_code
+&gt;&gt;&gt; upcoming_releases.country_code
 
 'in'
 </code></pre>
 
 <p><strong>Example of Extraction Upcoming Release for India DataFrame</strong></p>
-<pre><code class="Python">&gt;&gt;&gt; upcompany_releases.upcompany_releases_df.head()
+<pre><code class="Python">&gt;&gt;&gt; upcoming_releases.upcoming_releases_df.head()
 </code></pre>
 
 <p><img alt="ucrdf" src="https://user-images.githubusercontent.com/47944792/58538310-7d04ce80-8212-11e9-9344-83e0cc5d2526.PNG" /></p>

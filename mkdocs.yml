@@ -1,0 +1,13 @@
+site_name: imdby
+
+nav:
+  - Home: index.md
+  - Usage: usage.md
+  - FAQs: FAQ.md
+
+theme:
+  name: readthedocs
+  highlightjs: true
+  hljs_languages:
+    - yaml
+    - rust

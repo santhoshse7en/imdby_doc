@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Usage - imdby</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Usage";
+    var mkdocs_page_input_path = "usage.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/rust.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> imdby</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Usage</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#searching">Searching</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#retrieving">Retrieving</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../FAQ/">FAQs</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">imdby</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Usage</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="quickstart">Quickstart</h2>
+<p>The first thing to do is to import imdb and call the imdb.IMDb function to get an access object through which IMDb data can be retrieved:</p>
+<pre><code class="python">&gt;&gt;&gt; import imdb
+&gt;&gt;&gt; ia = imdb.IMDb()
+</code></pre>
+
+<h3 id="searching">Searching</h3>
+<p>You can use the search_movie method of the access object to search for movies with a given (or similar) title. For example, to search for movies with titles like “matrix”:</p>
+<pre><code class="python">&gt;&gt;&gt; movies = ia.search_movie('endgame')
+&gt;&gt;&gt; print('Movie ID: %s, Movie Name: %s' % (movies.title_id, movies.title_name))
+
+'Movie ID: tt4154796, Movie Name: Avengers: Endgame'
+</code></pre>
+
+<p>Similarly, you can search for people and companies using the search_person and the search_company methods:</p>
+<pre><code class="python">&gt;&gt;&gt; people = ia.search_person('robert downey')
+&gt;&gt;&gt; print('Person ID: %s, Person Name: %s' % (people.person_id, people.person_name))
+
+'Person ID: nm0000375, Person Name: Robert Downey Jr.'
+</code></pre>
+
+<pre><code class="python">&gt;&gt;&gt; companies = ia.search_company('rko')
+&gt;&gt;&gt; print('Company ID: %s, Company Name: %s' % (companies.company_id, companies.company_name))
+
+'Company ID: co0051941, Company Name: Marvel Studios'
+</code></pre>
+
+<p>As the examples indicate, the results are suggestion of Movie, Person, or Company in order. These behave like multiple choice, i.e. they can be queried by object data you want to obtain from your selection:</p>
+<pre><code class="python">&gt;&gt;&gt; movies.title_name
+'Avengers: Endgame'
+&gt;&gt;&gt; people.person_name
+'Robert Downey Jr.'
+&gt;&gt;&gt; companies.company_name
+'Marvel Studios'
+</code></pre>
+
+<p>Movie, person, and company objects have id attributes which -when fetched through the IMDb web server- store the IMDb id of the object:</p>
+<pre><code class="python">&gt;&gt;&gt; movies.title_id
+'tt4154796'
+&gt;&gt;&gt; people[0].personID
+'nm0000375'
+&gt;&gt;&gt; companies[0].companyID
+'co0051941'
+</code></pre>
+
+<h3 id="retrieving">Retrieving</h3>
+<p>If you know the IMDb id of a movie, you can use the movie method to retrieve its data. For example, the movie “The Untouchables” by Brian De Palma has the id “tt4154796”:</p>
+<pre><code class="python">&gt;&gt;&gt; movie = ia.movie('tt0094226')
+&gt;&gt;&gt; movie.title
+
+'The Untouchables'
+</code></pre>
+
+<p>Similarly, the get_person and the get_company methods can be used for retrieving Person and Company data:</p>
+<pre><code class="python">&gt;&gt;&gt; person = ia.person('nm0000206')
+&gt;&gt;&gt; print('Name: %s, DOB: %s' % (person.title, person.dob))
+
+'Name: Keanu Reeves, DOB: 1964-9-2'
+</code></pre>
+
+<pre><code class="python">&gt;&gt;&gt; company = ia.company('co0017902')
+&gt;&gt;&gt; company.name
+'Pixar Animation Studios'
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../FAQ/" class="btn btn-neutral float-right" title="FAQs">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../FAQ/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

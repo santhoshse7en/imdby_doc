@@ -7,13 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
+  
   <link rel="shortcut icon" href="../img/favicon.ico">
   <title>Usage - imdby</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
   
   <script>
     // Current page data
@@ -24,7 +25,9 @@
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
   <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/rust.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
@@ -35,6 +38,7 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href=".." class="icon icon-home"> imdby</a>
         <div role="search">
@@ -45,69 +49,26 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="..">Home</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../installation/">Installation</a>
-	    </li>
-          
-            <li class="toctree-l1 current">
-		
-    <a class="current" href="./">Usage</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#quickstart">Quickstart</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l3" href="#imdb-movie-information">IMDb Movie Information</a></li>
-        
-            <li><a class="toctree-l3" href="#external-sites-info">External Sites Info</a></li>
-        
-            <li><a class="toctree-l3" href="#user-reviews-info">User Reviews Info</a></li>
-        
-            <li><a class="toctree-l3" href="#critic-reviews-info">Critic Reviews Info</a></li>
-        
-            <li><a class="toctree-l3" href="#search-person-name-person-id">Search Person Name &amp; Person ID</a></li>
-        
-            <li><a class="toctree-l3" href="#search-title-name-title-id">Search Title Name &amp; Title ID</a></li>
-        
-            <li><a class="toctree-l3" href="#search-company-name-company-id">Search Company Name &amp; Company ID</a></li>
-        
-            <li><a class="toctree-l3" href="#upcoming-releases-for-selected-regions">Upcoming Releases for Selected Regions</a></li>
-        
-            <li><a class="toctree-l3" href="#trending-now-in-india">Trending Now in India</a></li>
-        
-            <li><a class="toctree-l3" href="#imdb-charts">IMDb Charts</a></li>
-        
-            <li><a class="toctree-l3" href="#top-india-charts">Top India Charts</a></li>
-        
-        </ul>
-    
-
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Usage</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#searching">Searching</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#retrieving">Retrieving</a>
+    </li>
     </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../development/">Development</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../about/">About</a>
-	    </li>
-          
-        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../FAQ/">FAQs</a>
+                    </li>
+                </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -132,316 +93,76 @@
       
     </li>
   </ul>
+  
   <hr/>
 </div>
           <div role="main">
             <div class="section">
               
                 <h2 id="quickstart">Quickstart</h2>
-<p>Eager to get started? This page gives a good introduction in how to get started with imdby. This assumes you already have imdby installed. If you do not, head over to the Installation section.</p>
-<p><strong>Building a IMDb source</strong></p>
-<p>Source objects are an abstraction of online multi-media content websites <a href="https://www.imdb.com/">IMDb</a></p>
-<p>Building a Source will extract its movie, cast_and_crew, plot, plot_keywords, company, parental_guide, techincal_spec, release_info, taglines, external_sites, user_reviews for you</p>
-<h3 id="imdb-movie-information">IMDb Movie Information</h3>
-<p>You may also provide configuration parameters like titleid to create an instance of the IMDb class.</p>
-<pre><code class="Python">&gt;&gt;&gt; from imdby.imdb import imdb
-
-&gt;&gt;&gt; details = imdb('tt4154796')
+<p>The first thing to do is to import imdb and call the imdb.IMDb function to get an access object through which IMDb data can be retrieved:</p>
+<pre><code class="python">&gt;&gt;&gt; import imdb
+&gt;&gt;&gt; ia = imdb.IMDb()
 </code></pre>
 
-<p>Every IMDb movie source has a set of infos like.</p>
-<ul>
-<li>Basic Movie Information</li>
-<li>Plot</li>
-<li>Plot Keywords</li>
-<li>Cast and Crew</li>
-<li>Company</li>
-<li>Release Info</li>
-<li>Taglines</li>
-<li>Parental Guide</li>
-<li>Technical Spec</li>
-</ul>
-<p>The output of details directory.</p>
-<p><img alt="dir" src="https://user-images.githubusercontent.com/47944792/58303052-eb5d2180-7e0b-11e9-82c1-14627ee73ca3.PNG" /></p>
-<p><strong>Example of Extracting Movie Title</strong></p>
-<pre><code class="Python">&gt;&gt;&gt; details.title
+<h3 id="searching">Searching</h3>
+<p>You can use the search_movie method of the access object to search for movies with a given (or similar) title. For example, to search for movies with titles like “matrix”:</p>
+<pre><code class="python">&gt;&gt;&gt; movies = ia.search_movie('endgame')
+&gt;&gt;&gt; print('Movie ID: %s, Movie Name: %s' % (movies.title_id, movies.title_name))
 
+'Movie ID: tt4154796, Movie Name: Avengers: Endgame'
+</code></pre>
+
+<p>Similarly, you can search for people and companies using the search_person and the search_company methods:</p>
+<pre><code class="python">&gt;&gt;&gt; people = ia.search_person('robert downey')
+&gt;&gt;&gt; print('Person ID: %s, Person Name: %s' % (people.person_id, people.person_name))
+
+'Person ID: nm0000375, Person Name: Robert Downey Jr.'
+</code></pre>
+
+<pre><code class="python">&gt;&gt;&gt; companies = ia.search_company('rko')
+&gt;&gt;&gt; print('Company ID: %s, Company Name: %s' % (companies.company_id, companies.company_name))
+
+'Company ID: co0051941, Company Name: Marvel Studios'
+</code></pre>
+
+<p>As the examples indicate, the results are suggestion of Movie, Person, or Company in order. These behave like multiple choice, i.e. they can be queried by object data you want to obtain from your selection:</p>
+<pre><code class="python">&gt;&gt;&gt; movies.title_name
 'Avengers: Endgame'
+&gt;&gt;&gt; people.person_name
+'Robert Downey Jr.'
+&gt;&gt;&gt; companies.company_name
+'Marvel Studios'
 </code></pre>
 
-<h3 id="external-sites-info">External Sites Info</h3>
-<p>You may also provide configuration parameters like titleid to create an instance of the IMDb class.</p>
-<pre><code class="Python">&gt;&gt;&gt; from imdby.external_sites import imdb
-
-&gt;&gt;&gt; external_sites = imdb('tt4154796')
+<p>Movie, person, and company objects have id attributes which -when fetched through the IMDb web server- store the IMDb id of the object:</p>
+<pre><code class="python">&gt;&gt;&gt; movies.title_id
+'tt4154796'
+&gt;&gt;&gt; people[0].personID
+'nm0000375'
+&gt;&gt;&gt; companies[0].companyID
+'co0051941'
 </code></pre>
 
-<p>Every IMDb movie external_sites source has a set of infos like.</p>
-<ul>
-<li>Official Sites</li>
-<li>Miscellaneous Sites</li>
-<li>Photographs</li>
-<li>Video Clips and Trailers</li>
-</ul>
-<p>The output of external_sites directory.</p>
-<p><img alt="esdir" src="https://user-images.githubusercontent.com/47944792/58304230-0da56e00-7e11-11e9-8b3a-823f4cbff1d6.PNG" /></p>
-<p><strong>Example of Extracting Movie Official Sites</strong></p>
-<pre><code class="Python">&gt;&gt;&gt; external_sites.official_sites_df.head()
+<h3 id="retrieving">Retrieving</h3>
+<p>If you know the IMDb id of a movie, you can use the movie method to retrieve its data. For example, the movie “The Untouchables” by Brian De Palma has the id “tt4154796”:</p>
+<pre><code class="python">&gt;&gt;&gt; movie = ia.movie('tt0094226')
+&gt;&gt;&gt; movie.title
+
+'The Untouchables'
 </code></pre>
 
-<p><img alt="esdf" src="https://user-images.githubusercontent.com/47944792/58304291-48a7a180-7e11-11e9-9f7f-2ab1c252ec0e.PNG" /></p>
-<h3 id="user-reviews-info">User Reviews Info</h3>
-<p>You may also provide configuration parameters like titleid to create an instance of the IMDb class.</p>
-<pre><code class="Python">&gt;&gt;&gt; from imdby.user_reviews import imdb
+<p>Similarly, the get_person and the get_company methods can be used for retrieving Person and Company data:</p>
+<pre><code class="python">&gt;&gt;&gt; person = ia.person('nm0000206')
+&gt;&gt;&gt; print('Name: %s, DOB: %s' % (person.title, person.dob))
 
-&gt;&gt;&gt; user_reviews = imdb('tt4154796')
+'Name: Keanu Reeves, DOB: 1964-9-2'
 </code></pre>
 
-<p>Every IMDb movie user_reviews source has a set of infos like.</p>
-<ul>
-<li>User Reviews</li>
-<li>User Reviews Sentiment Analysis</li>
-</ul>
-<p>The output of user_reviews directory.</p>
-<p><img alt="urdir" src="https://user-images.githubusercontent.com/47944792/58304429-d2576f00-7e11-11e9-9d92-6c1ee010d003.PNG" /></p>
-<p><strong>Example of Extracting User Reviews for the Movie</strong></p>
-<pre><code class="Python">&gt;&gt;&gt; user_reviews.user_reviews_df.head()
+<pre><code class="python">&gt;&gt;&gt; company = ia.company('co0017902')
+&gt;&gt;&gt; company.name
+'Pixar Animation Studios'
 </code></pre>
-
-<p><img alt="urdf" src="https://user-images.githubusercontent.com/47944792/58304563-72ad9380-7e12-11e9-99cd-7a1fae184905.PNG" /></p>
-<h3 id="critic-reviews-info">Critic Reviews Info</h3>
-<p>You may also provide configuration parameters like titleid to create an instance of the IMDb class.</p>
-<pre><code class="Python">&gt;&gt;&gt; from imdby.critic_reviews import imdb
-
-&gt;&gt;&gt; critic_reviews = imdb('tt4154796')
-</code></pre>
-
-<p>Every IMDb movie critic_reviews source has a set of infos like.</p>
-<ul>
-<li>User Reviews</li>
-</ul>
-<p>The output of critic_reviews directory.</p>
-<p><img alt="crdir" src="https://user-images.githubusercontent.com/47944792/58313533-6a158700-7e2b-11e9-8f82-401994d728e3.PNG" /></p>
-<p><strong>Example of Extracting Critic Reviews for the Movie</strong></p>
-<pre><code class="Python">&gt;&gt;&gt; critic_reviews.critic_reviews_df.head()
-</code></pre>
-
-<p><img alt="crdf" src="https://user-images.githubusercontent.com/47944792/58313556-7a2d6680-7e2b-11e9-99b0-4bc1e0d115a6.PNG" /></p>
-<h3 id="search-person-name-person-id">Search Person Name &amp; Person ID</h3>
-<p>You may also provide configuration parameters like text to create an instance of the IMDb class.</p>
-<pre><code class="Python">&gt;&gt;&gt; from imdby.search_person import imdb
-
-&gt;&gt;&gt; person = imdb('mouli')
-</code></pre>
-
-<p><strong>Manual Person Name selection done</strong></p>
-<p><img alt="pse" src="https://user-images.githubusercontent.com/47944792/58333901-0b1c3600-7e5c-11e9-846e-e5139aa8ae51.PNG" /></p>
-<p>IMDb movie search person source has a set of infos like.</p>
-<ul>
-<li>Person Name</li>
-<li>Person ID</li>
-</ul>
-<p>The output of search_person directory.</p>
-<pre><code class="Python">&gt;&gt;&gt; print(dir(person))
-</code></pre>
-
-<p><img alt="pdir" src="https://user-images.githubusercontent.com/47944792/58333783-d5774d00-7e5b-11e9-8848-ef9dd3dce671.PNG" /></p>
-<p><strong>Example of Extracting Person Name &amp; Person ID</strong></p>
-<pre><code class="Python">&gt;&gt;&gt; person.person_name
-
-'S.S. Rajamouli'
-
-&gt;&gt;&gt; person.person_id
-
-'nm1442514'
-</code></pre>
-
-<h3 id="search-title-name-title-id">Search Title Name &amp; Title ID</h3>
-<p>You may also provide configuration parameters like text to create an instance of the IMDb class.</p>
-<pre><code class="Python">&gt;&gt;&gt; from imdby.search_title import imdb
-
-&gt;&gt;&gt; title = imdb('entiran')
-</code></pre>
-
-<p><strong>Manual Title Name selection done</strong></p>
-<p><img alt="tse" src="https://user-images.githubusercontent.com/47944792/58334200-a7ded380-7e5c-11e9-87f9-709c24fb3634.PNG" /></p>
-<p>IMDb movie search title source has a set of infos like.</p>
-<ul>
-<li>Title Name</li>
-<li>Title ID</li>
-</ul>
-<p>The output of search_title directory.</p>
-<pre><code class="Python">&gt;&gt;&gt; print(dir(title))
-</code></pre>
-
-<p><img alt="tdir" src="https://user-images.githubusercontent.com/47944792/58334175-9bf31180-7e5c-11e9-8e67-f7a4f94d8a5a.PNG" /></p>
-<p><strong>Example of Extracting Title Name &amp; Title ID</strong></p>
-<pre><code class="Python">&gt;&gt;&gt; title.title_name
-
-'Enthiran'
-
-&gt;&gt;&gt; title.title_id
-
-'tt1305797'
-</code></pre>
-
-<h3 id="search-company-name-company-id">Search Company Name &amp; Company ID</h3>
-<p>You may also provide configuration parameters like text to create an instance of the IMDb class.</p>
-<pre><code class="Python">&gt;&gt;&gt; from imdby.search_company import imdb
-
-&gt;&gt;&gt; company = imdb('warner')
-</code></pre>
-
-<p><strong>Manual Title Name selection done</strong></p>
-<p><img alt="cse" src="https://user-images.githubusercontent.com/47944792/58334557-6d296b00-7e5d-11e9-92f9-dd888f0b0284.PNG" /></p>
-<p>IMDb movie search company source has a set of infos like.</p>
-<ul>
-<li>Company Name</li>
-<li>Company ID</li>
-</ul>
-<p>The output of search_company directory.</p>
-<pre><code class="Python">&gt;&gt;&gt; print(dir(company))
-</code></pre>
-
-<p><img alt="cdir" src="https://user-images.githubusercontent.com/47944792/58334535-64389980-7e5d-11e9-8fe8-5cdb8d800111.PNG" /></p>
-<p><strong>Example of Extracting Company Name &amp; Company ID</strong></p>
-<pre><code class="Python">&gt;&gt;&gt; company.company_name
-
-'Warner'
-
-&gt;&gt;&gt; company.company_id
-
-'co0423665'
-</code></pre>
-
-<h3 id="upcoming-releases-for-selected-regions">Upcoming Releases for Selected Regions</h3>
-<p>You won't need to provide configuration parameters like text to create an instance of the IMDb class.</p>
-<pre><code class="Python">&gt;&gt;&gt; from imdby.upcoming_releases import imdb
-
-&gt;&gt;&gt; upcoming_releases = imdb()
-</code></pre>
-
-<p><strong>Manual Country Name selection done</strong></p>
-<p><img alt="urse" src="https://user-images.githubusercontent.com/47944792/58538033-e506e500-8211-11e9-9dc0-b76e6fdd9214.PNG" /></p>
-<p>Upcoming Releases has a set of info. &amp; DataFrames like.</p>
-<ul>
-<li>Country Name</li>
-<li>Country Code</li>
-<li>Upcoming Releases df</li>
-</ul>
-<p>The output of upcoming_releases directory.</p>
-<pre><code class="Python">&gt;&gt;&gt; print(dir(upcoming_releases))
-</code></pre>
-
-<p><img alt="ucrdir" src="https://user-images.githubusercontent.com/47944792/58538621-24820100-8213-11e9-9996-55be8797e0ab.PNG" /></p>
-<p><strong>Example of Extracting Country Name &amp; Country Code</strong></p>
-<pre><code class="Python">&gt;&gt;&gt; upcoming_releases.country_name
-
-'India'
-
-&gt;&gt;&gt; upcoming_releases.country_code
-
-'in'
-</code></pre>
-
-<p><strong>Example of Extraction Upcoming Release for India DataFrame</strong></p>
-<pre><code class="Python">&gt;&gt;&gt; upcoming_releases.upcoming_releases_df.head()
-</code></pre>
-
-<p><img alt="ucrdf" src="https://user-images.githubusercontent.com/47944792/79011689-2d0ccd00-7b82-11ea-86d8-b1175c9916d2.PNG" /></p>
-<h3 id="trending-now-in-india">Trending Now in India</h3>
-<p>You won't need to provide configuration parameters like text to create an instance of the IMDb class.</p>
-<pre><code class="Python">&gt;&gt;&gt; from imdby.trending_now_in_india import imdb
-
-&gt;&gt;&gt; trending_now_in_india = imdb()
-</code></pre>
-
-<p>Trending Now in India has a set of Data Frames like.</p>
-<ul>
-<li>Popular Global</li>
-<li>Popular India</li>
-<li>Popular Tamil</li>
-<li>Popular Telugu</li>
-<li>Popular Hindi</li>
-</ul>
-<p>The output of trending_now_in_india directory.</p>
-<pre><code class="Python">&gt;&gt;&gt; print(dir(trending_now_in_india))
-</code></pre>
-
-<p><img alt="tredir" src="https://user-images.githubusercontent.com/47944792/58555910-59ed1580-8238-11e9-81cf-2adadbaaacd5.PNG" /></p>
-<p><strong>Example of Extracting Tamil Trending Movies URL</strong></p>
-<pre><code class="Python">&gt;&gt;&gt; trending_now_in_india.popular_tamil_url
-
-'https://www.imdb.com/india/tamil'
-</code></pre>
-
-<p><strong>Example of Extraction Trending Tamil Movies DataFrame</strong></p>
-<pre><code class="Python">&gt;&gt;&gt; trending_now_in_india.popular_tamil_movies_df
-</code></pre>
-
-<p><img alt="tadf" src="https://user-images.githubusercontent.com/47944792/58556177-f57e8600-8238-11e9-83e5-ce70e6575d01.PNG" /></p>
-<h3 id="imdb-charts">IMDb Charts</h3>
-<p>You won't need to provide configuration parameters like text to create an instance of the IMDb class.</p>
-<pre><code class="Python">&gt;&gt;&gt; from imdby.imdb_charts import imdb
-
-&gt;&gt;&gt; imdb_charts = imdb()
-</code></pre>
-
-<p>IMDb Charts has a set of Data Frames like.</p>
-<ul>
-<li>Top Rated Movies</li>
-<li>Top Rated English Movies</li>
-<li>Top Rates TV Shows</li>
-<li>Lowest Rated Movies</li>
-<li>Most Popular Movies</li>
-<li>Most Popular TV Shows</li>
-</ul>
-<p>The output of imdb_charts directory.</p>
-<pre><code class="Python">&gt;&gt;&gt; print(dir(imdb_charts))
-</code></pre>
-
-<p><img alt="icdir" src="https://user-images.githubusercontent.com/47944792/58540048-40d36d00-8216-11e9-8e55-62bbaa0a7843.PNG" /></p>
-<p><strong>Example of Extracting Top Box Office Movies URL</strong></p>
-<pre><code class="Python">&gt;&gt;&gt; imdb_charts.top_box_office_us_url
-
-'https://www.imdb.com/chart/boxoffice'
-</code></pre>
-
-<p><strong>Example of Extraction Top Box Office DataFrame</strong></p>
-<pre><code class="Python">&gt;&gt;&gt; imdb_charts.top_rated_english_movies_df
-</code></pre>
-
-<p><img alt="icbdf" src="https://user-images.githubusercontent.com/47944792/58556283-3f676c00-8239-11e9-9c62-df0120699372.PNG" /></p>
-<h3 id="top-india-charts">Top India Charts</h3>
-<p>You won't need to provide configuration parameters like text to create an instance of the IMDb class.</p>
-<pre><code class="Python">&gt;&gt;&gt; from imdby.top_india_charts import imdb
-
-&gt;&gt;&gt; top_india_charts = imdb()
-</code></pre>
-
-<p>Top India Charts has a set of Data Frames like.</p>
-<ul>
-<li>Top Rated Indian Movies</li>
-<li>Top Rated Tamil Movies</li>
-<li>Top Rated Malayalam Movies</li>
-<li>Top Rated Telugu Movies</li>
-</ul>
-<p>The output of top_india_charts directory.</p>
-<pre><code class="Python">&gt;&gt;&gt; print(dir(top_india_charts))
-</code></pre>
-
-<p><img alt="tidir" src="https://user-images.githubusercontent.com/47944792/58556589-ffed4f80-8239-11e9-9a52-7940223fc778.PNG" /></p>
-<p><strong>Example of Extracting Top Rated Tamil Movies URL</strong></p>
-<pre><code class="Python">&gt;&gt;&gt; top_india_charts.top_rated_tamil_movies_url
-
-'https://www.imdb.com/india/top-rated-tamil-movies'
-</code></pre>
-
-<p><strong>Example of Extraction Top Rated Tamil Movies DataFrame</strong></p>
-<pre><code class="Python">&gt;&gt;&gt; top_india_charts.top_rated_tamil_movies_df.head()
-</code></pre>
-
-<p><img alt="tidf" src="https://user-images.githubusercontent.com/47944792/58556603-08de2100-823a-11e9-81be-a8212bc465c5.PNG" /></p>
               
             </div>
           </div>
@@ -449,10 +170,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../development/" class="btn btn-neutral float-right" title="Development">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../FAQ/" class="btn btn-neutral float-right" title="FAQs">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../installation/" class="btn btn-neutral" title="Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -464,7 +185,7 @@
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
         </div>
@@ -474,20 +195,25 @@
 
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../installation/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../development/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../FAQ/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
     <script>var base_url = '..';</script>
     <script src="../js/theme.js" defer></script>
       <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>

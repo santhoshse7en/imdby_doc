@@ -1,160 +1,100 @@
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  
-  
+  <meta name="description" content="Frequently asked questions about the imdby Python package.">
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>FAQs - imdby</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+  <title>FAQs — imdby</title>
 
-  <link rel="stylesheet" href="../css/theme.css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
-  
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" media="(prefers-color-scheme: light)">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github-dark.min.css" media="(prefers-color-scheme: dark)">
+
   <script>
-    // Current page data
-    var mkdocs_page_name = "FAQs";
-    var mkdocs_page_input_path = "FAQ.md";
-    var mkdocs_page_url = null;
+    var base_url = '..';
   </script>
-  
-  <script src="../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../js/modernizr-2.8.3.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/rust.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
-  
+  <script>hljs.initHighlightingOnLoad();</script>
 </head>
+<body>
 
-<body class="wy-body-for-nav" role="document">
-
-  <div class="wy-grid-for-nav">
-
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
-      <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> imdby</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
-
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../usage/">Usage</a>
-                    </li>
-                </ul>
-                <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">FAQs</a>
-    <ul class="current">
-    </ul>
-                    </li>
-                </ul>
-      </div>
+  <header class="topbar">
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-controls="sidebar" aria-expanded="false">☰</button>
+    <a href=".." class="brand">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="6" width="20" height="14" rx="2" fill="#f5c518"/>
+        <path d="M2 10h20M6 6l2 4M11 6l2 4M16 6l2 4" stroke="#1c1f24" stroke-width="1.4"/>
+      </svg>
+      imdby<span class="dot">.</span>
+    </a>
+    <div class="topbar-search">
+      <input type="text" placeholder="Search docs…" data-search-url="../search.html" aria-label="Search docs">
     </div>
+    <nav class="topbar-links">
+      <a href="https://pypi.org/project/imdby" target="_blank" rel="noopener">PyPI</a>
+      <a href="https://github.com/santhoshse7en/imdby" target="_blank" rel="noopener">GitHub</a>
     </nav>
+  </header>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+  <div class="backdrop"></div>
 
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">imdby</a>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <nav aria-label="Documentation">
+        <ul>
+          <li><a href="..">Home</a></li>
+          <li><a href="../quick_start/">Quick Start</a></li>
+          <li><a href="../usage/">Usage</a></li>
+          <li class="active"><a href=".">FAQs</a></li>
+        </ul>
       </nav>
+      <p class="sidebar-section-title">Links</p>
+      <nav>
+        <ul>
+          <li><a href="https://pypi.org/project/imdby" target="_blank" rel="noopener">PyPI package</a></li>
+          <li><a href="https://github.com/santhoshse7en/imdby" target="_blank" rel="noopener">Source on GitHub</a></li>
+        </ul>
+      </nav>
+    </aside>
 
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="..">Docs</a> &raquo;</li>
-    
-      
-    
-    <li>FAQs</li>
-    <li class="wy-breadcrumbs-aside">
-      
-    </li>
-  </ul>
-  
-  <hr/>
-</div>
-          <div role="main">
-            <div class="section">
-              
-                <h3 id="frequently-asked-questions">Frequently Asked Questions</h3>
-<p><strong>Q:</strong> Is IMDbPY compatible with Python 3?</p>
-<p><strong>A:</strong> Yes. Versions after 6.0 are compatible with Python 3.x, but should also work with Python 2.7. If you need an older, unmaintained,
-version for Python, see the imdbpy-legacy branch in the repository.</p>
-<p><strong>Q:</strong> Importing the data using the ‘s3’ method, are the imdbID available?</p>
-<p><strong>A:</strong> Yes! The data from https://datasets.imdbws.com/ contains the original IDs.</p>
-<p><strong>Q:</strong> Importing the data using the old ‘sql’ method, are the imdbID available?</p>
-<p><strong>A:</strong> No. The old ‘sql’ method generates sequential imdbIDs that are unrelated to the ones used by the web site.</p>
-<p><strong>Q:</strong> I have an URL (of a movie, person or something else), how can I get a Movie/Person/… instance?</p>
-<p><strong>A:</strong> Import the imdb.helpers module and use the get_byURL function.</p>
-<p><strong>Q:</strong> I’m writing an interface based on IMDbPY and I have problems handling encoding, chars conversions,
-replacements of references and so on.</p>
-<p><strong>A:</strong> See the many functions in the imdb.helpers module.</p>
-              
-            </div>
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-      
-        <a href="../usage/" class="btn btn-neutral" title="Usage"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
-    </div>
-  
+    <main class="content">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="..">Docs</a> &raquo; FAQs</nav>
 
-  <hr/>
+      <article class="prose">
+        <h1 id="frequently-asked-questions">Frequently Asked Questions</h1>
 
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-    
+        <p><strong>Q: Is IMDbPY compatible with Python 3?</strong></p>
+        <p>A: Yes. Versions after 6.0 are compatible with Python 3.x, but should also work with Python 2.7. If you need an older, unmaintained, version for Python, see the imdbpy-legacy branch in the repository.</p>
+
+        <p><strong>Q: Importing the data using the 's3' method, are the imdbID available?</strong></p>
+        <p>A: Yes! The data from <a href="https://datasets.imdbws.com/" target="_blank" rel="noopener">https://datasets.imdbws.com/</a> contains the original IDs.</p>
+
+        <p><strong>Q: Importing the data using the old 'sql' method, are the imdbID available?</strong></p>
+        <p>A: No. The old 'sql' method generates sequential imdbIDs that are unrelated to the ones used by the web site.</p>
+
+        <p><strong>Q: I have an URL (of a movie, person or something else), how can I get a Movie/Person/… instance?</strong></p>
+        <p>A: Import the imdb.helpers module and use the get_byURL function.</p>
+
+        <p><strong>Q: I'm writing an interface based on IMDbPY and I have problems handling encoding, chars conversions, replacements of references and so on.</strong></p>
+        <p>A: See the many functions in the imdb.helpers module.</p>
+      </article>
+
+      <footer class="page-nav">
+        <a class="prev" href="../usage/"><small>Previous</small>&larr; Usage</a>
+        <span></span>
+      </footer>
+    </main>
   </div>
 
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
-      
-        </div>
-      </div>
+  <footer class="site-footer">
+    <p>Documentation built with <a href="https://www.mkdocs.org/" target="_blank" rel="noopener">MkDocs</a><span class="sep">&middot;</span><a href="https://pypi.org/project/imdby">PyPI</a><span class="sep">&middot;</span><a href="https://github.com/santhoshse7en/imdby">GitHub</a></p>
+  </footer>
 
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" aria-label="versions">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-      
-        <span><a href="../usage/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-    </span>
-</div>
-    <script>var base_url = '..';</script>
-    <script src="../js/theme.js" defer></script>
-      <script src="../search/main.js" defer></script>
-    <script defer>
-        window.onload = function () {
-            SphinxRtdTheme.Navigation.enable(true);
-        };
-    </script>
-
+  <script src="../js/nav.js"></script>
+  <script src="../search/main.js" defer></script>
 </body>
 </html>

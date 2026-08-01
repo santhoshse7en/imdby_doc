@@ -1,139 +1,70 @@
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  
-  
   <link rel="shortcut icon" href="./img/favicon.ico">
-  <title>imdby</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+  <title>Search — imdby</title>
 
-  <link rel="stylesheet" href="./css/theme.css" />
-  <link rel="stylesheet" href="./css/theme_extra.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
-  
-  <script src="./js/jquery-2.1.1.min.js" defer></script>
-  <script src="./js/modernizr-2.8.3.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/rust.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
-  
+  <link rel="stylesheet" href="./css/style.css">
 </head>
+<body>
 
-<body class="wy-body-for-nav" role="document">
-
-  <div class="wy-grid-for-nav">
-
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
-      <div class="wy-side-nav-search">
-        <a href="./." class="icon icon-home"> imdby</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
-
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="./.">Home</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="./usage/">Usage</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="./FAQ/">FAQs</a>
-                    </li>
-                </ul>
-      </div>
+  <header class="topbar">
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-controls="sidebar" aria-expanded="false">☰</button>
+    <a href="./." class="brand">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="6" width="20" height="14" rx="2" fill="#f5c518"/>
+        <path d="M2 10h20M6 6l2 4M11 6l2 4M16 6l2 4" stroke="#1c1f24" stroke-width="1.4"/>
+      </svg>
+      imdby<span class="dot">.</span>
+    </a>
+    <div class="topbar-search">
+      <input type="text" placeholder="Search docs…" data-search-url="./search.html" aria-label="Search docs">
     </div>
+    <nav class="topbar-links">
+      <a href="https://pypi.org/project/imdby" target="_blank" rel="noopener">PyPI</a>
+      <a href="https://github.com/santhoshse7en/imdby" target="_blank" rel="noopener">GitHub</a>
     </nav>
+  </header>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+  <div class="backdrop"></div>
 
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="./.">imdby</a>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <nav aria-label="Documentation">
+        <ul>
+          <li><a href="./.">Home</a></li>
+          <li><a href="./quick_start/">Quick Start</a></li>
+          <li><a href="./usage/">Usage</a></li>
+          <li><a href="./FAQ/">FAQs</a></li>
+        </ul>
       </nav>
+    </aside>
 
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="./.">Docs</a> &raquo;</li>
-    
-    
-    <li class="wy-breadcrumbs-aside">
-      
-    </li>
-  </ul>
-  
-  <hr/>
-</div>
-          <div role="main">
-            <div class="section">
-              
+    <main class="content">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="./.">Docs</a> &raquo; Search</nav>
 
-  <h1 id="search">Search Results</h1>
+      <article class="prose">
+        <h1 id="search">Search Results</h1>
 
-  <form id="content_search" action="search.html">
-    <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
-    <input name="q" id="mkdocs-search-query" type="text" class="search_input search-query ui-autocomplete-input" placeholder="Search the Docs" autocomplete="off" autofocus title="Type search term here">
-  </form>
+        <form id="content_search" class="search-box" action="search.html">
+          <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+          <input name="q" id="mkdocs-search-query" type="text" placeholder="Search the docs" autocomplete="off" autofocus title="Type search term here">
+        </form>
 
-  <div id="mkdocs-search-results" class="search-results">
-    Searching...
+        <div id="mkdocs-search-results" class="search-results">Searching…</div>
+      </article>
+    </main>
   </div>
 
+  <footer class="site-footer">
+    <p>Documentation built with <a href="https://www.mkdocs.org/" target="_blank" rel="noopener">MkDocs</a><span class="sep">&middot;</span><a href="https://pypi.org/project/imdby">PyPI</a><span class="sep">&middot;</span><a href="https://github.com/santhoshse7en/imdby">GitHub</a></p>
+  </footer>
 
-            </div>
-          </div>
-          <footer>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-    
-  </div>
-
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
-      
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" aria-label="versions">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-      
-      
-    </span>
-</div>
-    <script>var base_url = '.';</script>
-    <script src="./js/theme.js" defer></script>
-      <script src="./search/main.js" defer></script>
-    <script defer>
-        window.onload = function () {
-            SphinxRtdTheme.Navigation.enable(true);
-        };
-    </script>
-
+  <script>var base_url = '.';</script>
+  <script src="./js/nav.js"></script>
+  <script src="./search/main.js" defer></script>
 </body>
 </html>

@@ -1,221 +1,182 @@
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  
-  
+  <meta name="description" content="Quick start guide for the imdby Python package.">
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Quick start - imdby</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+  <title>Quick Start — imdby</title>
 
-  <link rel="stylesheet" href="../css/theme.css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
-  
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" media="(prefers-color-scheme: light)">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github-dark.min.css" media="(prefers-color-scheme: dark)">
+
   <script>
-    // Current page data
-    var mkdocs_page_name = "Quick start";
-    var mkdocs_page_input_path = "quick_start.md";
-    var mkdocs_page_url = null;
+    var base_url = '..';
   </script>
-  
-  <script src="../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../js/modernizr-2.8.3.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/rust.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
-  
+  <script>hljs.initHighlightingOnLoad();</script>
 </head>
+<body>
 
-<body class="wy-body-for-nav" role="document">
-
-  <div class="wy-grid-for-nav">
-
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
-      <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> imdby</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
-
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../usage/">Usage</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../FAQ/">FAQs</a>
-                    </li>
-                </ul>
-      </div>
+  <header class="topbar">
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-controls="sidebar" aria-expanded="false">☰</button>
+    <a href=".." class="brand">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="6" width="20" height="14" rx="2" fill="#f5c518"/>
+        <path d="M2 10h20M6 6l2 4M11 6l2 4M16 6l2 4" stroke="#1c1f24" stroke-width="1.4"/>
+      </svg>
+      imdby<span class="dot">.</span>
+    </a>
+    <div class="topbar-search">
+      <input type="text" placeholder="Search docs…" data-search-url="../search.html" aria-label="Search docs">
     </div>
+    <nav class="topbar-links">
+      <a href="https://pypi.org/project/imdby" target="_blank" rel="noopener">PyPI</a>
+      <a href="https://github.com/santhoshse7en/imdby" target="_blank" rel="noopener">GitHub</a>
     </nav>
+  </header>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+  <div class="backdrop"></div>
 
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">imdby</a>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <nav aria-label="Documentation">
+        <ul>
+          <li><a href="..">Home</a></li>
+          <li class="active">
+            <a href=".">Quick Start</a>
+            <ul class="sub">
+              <li><a href="#searching">Searching</a></li>
+              <li><a href="#retrieving">Retrieving</a></li>
+              <li><a href="#keywords">Keywords</a></li>
+              <li><a href="#top-bottom-movies">Top / bottom movies</a></li>
+              <li><a href="#exceptions">Exceptions</a></li>
+            </ul>
+          </li>
+          <li><a href="../usage/">Usage</a></li>
+          <li><a href="../FAQ/">FAQs</a></li>
+        </ul>
       </nav>
+      <p class="sidebar-section-title">Links</p>
+      <nav>
+        <ul>
+          <li><a href="https://pypi.org/project/imdby" target="_blank" rel="noopener">PyPI package</a></li>
+          <li><a href="https://github.com/santhoshse7en/imdby" target="_blank" rel="noopener">Source on GitHub</a></li>
+        </ul>
+      </nav>
+    </aside>
 
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="..">Docs</a> &raquo;</li>
-    
-      
-    
-    <li>Quick start</li>
-    <li class="wy-breadcrumbs-aside">
-      
-    </li>
-  </ul>
-  
-  <hr/>
-</div>
-          <div role="main">
-            <div class="section">
-              
-                <p>Quick start
-The first thing to do is to import imdb and call the imdb.IMDb function to get an access object through which IMDb data can be retrieved:</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>import imdb
-ia = imdb.IMDb()
-By default this will fetch the data from the IMDb web server but there are other options. See the access systems document for more information.</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>Searching
-You can use the search_movie method of the access object to search for movies with a given (or similar) title. For example, to search for movies with titles like “matrix”:</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>movies = ia.search_movie('matrix')
-movies[0]
-<Movie id:0133093[http] title:_The Matrix (1999)_>
-Similarly, you can search for people and companies using the search_person and the search_company methods:</p>
-<p>people = ia.search_person('angelina')
-people[0]
-<Person id:0001401[http] name:_Jolie, Angelina_>
-companies = ia.search_company('rko')
-companies[0]
-<Company id:0226417[http] name:_RKO_>
-As the examples indicate, the results are lists of Movie, Person, or Company objects. These behave like dictionaries, i.e. they can be queried by giving the key of the data you want to obtain:</p>
-<p>movies[0]['title']
+    <main class="content">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="..">Docs</a> &raquo; Quick Start</nav>
+
+      <article class="prose">
+        <h1 id="quick-start">Quick start</h1>
+        <p>The first thing to do is to import <code>imdb</code> and call the <code>imdb.IMDb</code> function to get an access object through which IMDb data can be retrieved:</p>
+        <pre><code class="python">&gt;&gt;&gt; import imdb
+&gt;&gt;&gt; ia = imdb.IMDb()</code></pre>
+        <p>By default this will fetch the data from the IMDb web server, but there are other options — see the access systems document for more information.</p>
+
+        <h3 id="searching">Searching</h3>
+        <p>You can use the <code>search_movie</code> method of the access object to search for movies with a given (or similar) title. For example, to search for movies with titles like "matrix":</p>
+        <pre><code class="python">&gt;&gt;&gt; movies = ia.search_movie('matrix')
+&gt;&gt;&gt; movies[0]
+
+&lt;Movie id:0133093[http] title:_The Matrix (1999)_&gt;</code></pre>
+        <p>Similarly, you can search for people and companies using the <code>search_person</code> and <code>search_company</code> methods:</p>
+        <pre><code class="python">&gt;&gt;&gt; people = ia.search_person('angelina')
+&gt;&gt;&gt; people[0]
+
+&lt;Person id:0001401[http] name:_Jolie, Angelina_&gt;
+
+&gt;&gt;&gt; companies = ia.search_company('rko')
+&gt;&gt;&gt; companies[0]
+
+&lt;Company id:0226417[http] name:_RKO_&gt;</code></pre>
+        <p>As the examples indicate, the results are lists of Movie, Person, or Company objects. These behave like dictionaries, i.e. they can be queried by giving the key of the data you want to obtain:</p>
+        <pre><code class="python">&gt;&gt;&gt; movies[0]['title']
 'The Matrix'
-people[0]['name']
+&gt;&gt;&gt; people[0]['name']
 'Angelina Jolie'
-companies[0]['name']
-'RKO'
-Movie, person, and company objects have id attributes which -when fetched through the IMDb web server- store the IMDb id of the object:</p>
-<p>movies[0].movieID
+&gt;&gt;&gt; companies[0]['name']
+'RKO'</code></pre>
+        <p>Movie, person, and company objects have <code>id</code> attributes which — when fetched through the IMDb web server — store the IMDb id of the object:</p>
+        <pre><code class="python">&gt;&gt;&gt; movies[0].movieID
 '0133093'
-people[0].personID
+&gt;&gt;&gt; people[0].personID
 '0001401'
-companies[0].companyID
-'0226417'
-Retrieving
-If you know the IMDb id of a movie, you can use the get_movie method to retrieve its data. For example, the movie “The Untouchables” by Brian De Palma has the id “0094226”:</p>
-<p>movie = ia.get_movie('0094226')
-movie
-<Movie id:0094226[http] title:_The Untouchables (1987)_>
-Similarly, the get_person and the get_company methods can be used for retrieving Person and Company data:</p>
-<p>person = ia.get_person('0000206')
-person['name']
+&gt;&gt;&gt; companies[0].companyID
+'0226417'</code></pre>
+
+        <h3 id="retrieving">Retrieving</h3>
+        <p>If you know the IMDb id of a movie, you can use the <code>get_movie</code> method to retrieve its data. For example, the movie "The Untouchables" by Brian De Palma has the id "0094226":</p>
+        <pre><code class="python">&gt;&gt;&gt; movie = ia.get_movie('0094226')
+&gt;&gt;&gt; movie
+
+&lt;Movie id:0094226[http] title:_The Untouchables (1987)_&gt;</code></pre>
+        <p>Similarly, the <code>get_person</code> and <code>get_company</code> methods can be used for retrieving Person and Company data:</p>
+        <pre><code class="python">&gt;&gt;&gt; person = ia.get_person('0000206')
+&gt;&gt;&gt; person['name']
 'Keanu Reeves'
-person['birth date']
+&gt;&gt;&gt; person['birth date']
 '1964-9-2'
-company = ia.get_company('0017902')
-company['name']
-'Pixar Animation Studios'
-Keywords
-You can search for keywords similar to the one provided:</p>
-<p>keywords = ia.search_keyword('dystopia')
-keywords
-['dystopia', 'dystopian-future', ..., 'dystopic-future']
-And movies that match a given keyword:</p>
-<p>movies = ia.get_keyword('dystopia')
-len(movies)
+
+&gt;&gt;&gt; company = ia.get_company('0017902')
+&gt;&gt;&gt; company['name']
+'Pixar Animation Studios'</code></pre>
+
+        <h3 id="keywords">Keywords</h3>
+        <p>You can search for keywords similar to the one provided:</p>
+        <pre><code class="python">&gt;&gt;&gt; keywords = ia.search_keyword('dystopia')
+&gt;&gt;&gt; keywords
+['dystopia', 'dystopian-future', ..., 'dystopic-future']</code></pre>
+        <p>And movies that match a given keyword:</p>
+        <pre><code class="python">&gt;&gt;&gt; movies = ia.get_keyword('dystopia')
+&gt;&gt;&gt; len(movies)
 50
-movies[0]
-<Movie id:1677720[http] title:_Ready Player One (2018)_>
-Top / bottom movies
-It’s possible to retrieve the list of top 250 and bottom 100 movies:</p>
-<p>top = ia.get_top250_movies()
-top[0]
-<Movie id:0111161[http] title:_The Shawshank Redemption (1994)_>
-bottom = ia.get_bottom100_movies()
-bottom[0]
-<Movie id:4458206[http] title:_Code Name: K.O.Z. (2015)_>
-The get_top250_tv, get_popular100_movies, get_popular100_movies and get_top250_indian_movies methods are also available.</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>Exceptions
-Any error related to IMDbPY can be caught by checking for the imdb.IMDbError exception:</p>
-<p>from imdb import IMDb, IMDbError</p>
-<p>try:
+&gt;&gt;&gt; movies[0]
+
+&lt;Movie id:1677720[http] title:_Ready Player One (2018)_&gt;</code></pre>
+
+        <h3 id="top-bottom-movies">Top / bottom movies</h3>
+        <p>It's possible to retrieve the list of top 250 and bottom 100 movies:</p>
+        <pre><code class="python">&gt;&gt;&gt; top = ia.get_top250_movies()
+&gt;&gt;&gt; top[0]
+
+&lt;Movie id:0111161[http] title:_The Shawshank Redemption (1994)_&gt;
+
+&gt;&gt;&gt; bottom = ia.get_bottom100_movies()
+&gt;&gt;&gt; bottom[0]
+
+&lt;Movie id:4458206[http] title:_Code Name: K.O.Z. (2015)_&gt;</code></pre>
+        <p>The <code>get_top250_tv</code>, <code>get_popular100_movies</code>, <code>get_popular100_movies</code> and <code>get_top250_indian_movies</code> methods are also available.</p>
+
+        <h3 id="exceptions">Exceptions</h3>
+        <p>Any error related to IMDbPY can be caught by checking for the <code>imdb.IMDbError</code> exception:</p>
+        <pre><code class="python">from imdb import IMDb, IMDbError
+
+try:
     ia = IMDb()
     people = ia.search_person('Mel Gibson')
 except IMDbError as e:
-    print(e)</p>
-              
-            </div>
-          </div>
-          <footer>
-  
+    print(e)</code></pre>
+      </article>
 
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-    
+      <footer class="page-nav">
+        <a class="prev" href=".."><small>Previous</small>&larr; Home</a>
+        <a class="next" href="../usage/"><small>Next</small>Usage &rarr;</a>
+      </footer>
+    </main>
   </div>
 
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
-      
-        </div>
-      </div>
+  <footer class="site-footer">
+    <p>Documentation built with <a href="https://www.mkdocs.org/" target="_blank" rel="noopener">MkDocs</a><span class="sep">&middot;</span><a href="https://pypi.org/project/imdby">PyPI</a><span class="sep">&middot;</span><a href="https://github.com/santhoshse7en/imdby">GitHub</a></p>
+  </footer>
 
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" aria-label="versions">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-      
-      
-    </span>
-</div>
-    <script>var base_url = '..';</script>
-    <script src="../js/theme.js" defer></script>
-      <script src="../search/main.js" defer></script>
-    <script defer>
-        window.onload = function () {
-            SphinxRtdTheme.Navigation.enable(true);
-        };
-    </script>
-
+  <script src="../js/nav.js"></script>
+  <script src="../search/main.js" defer></script>
 </body>
 </html>

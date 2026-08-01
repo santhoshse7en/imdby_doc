@@ -1,160 +1,107 @@
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="None">
-  
-  
+  <meta name="description" content="imdby is a Python package to retrieve and manage IMDb movie database data — movies, people, characters, companies, events and news.">
   <link rel="shortcut icon" href="img/favicon.ico">
-  <title>imdby</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+  <title>imdby — Python IMDb toolkit</title>
 
-  <link rel="stylesheet" href="css/theme.css" />
-  <link rel="stylesheet" href="css/theme_extra.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
-  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" media="(prefers-color-scheme: light)">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github-dark.min.css" media="(prefers-color-scheme: dark)">
+
   <script>
-    // Current page data
-    var mkdocs_page_name = "Home";
-    var mkdocs_page_input_path = "index.md";
-    var mkdocs_page_url = null;
+    var base_url = '.';
   </script>
-  
-  <script src="js/jquery-2.1.1.min.js" defer></script>
-  <script src="js/modernizr-2.8.3.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/rust.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
-  
+  <script>hljs.initHighlightingOnLoad();</script>
 </head>
+<body>
 
-<body class="wy-body-for-nav" role="document">
-
-  <div class="wy-grid-for-nav">
-
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
-      <div class="wy-side-nav-search">
-        <a href="." class="icon icon-home"> imdby</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
-
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-                <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href=".">Home</a>
-    <ul class="current">
-    </ul>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="usage/">Usage</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="FAQ/">FAQs</a>
-                    </li>
-                </ul>
-      </div>
+  <header class="topbar">
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-controls="sidebar" aria-expanded="false">☰</button>
+    <a href="." class="brand">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="6" width="20" height="14" rx="2" fill="#f5c518"/>
+        <path d="M2 10h20M6 6l2 4M11 6l2 4M16 6l2 4" stroke="#1c1f24" stroke-width="1.4"/>
+      </svg>
+      imdby<span class="dot">.</span>
+    </a>
+    <div class="topbar-search">
+      <input type="text" placeholder="Search docs…" data-search-url="search.html" aria-label="Search docs">
     </div>
+    <nav class="topbar-links">
+      <a href="https://pypi.org/project/imdby" target="_blank" rel="noopener">PyPI</a>
+      <a href="https://github.com/santhoshse7en/imdby" target="_blank" rel="noopener">GitHub</a>
     </nav>
+  </header>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+  <div class="backdrop"></div>
 
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href=".">imdby</a>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <nav aria-label="Documentation">
+        <ul>
+          <li class="active"><a href=".">Home</a></li>
+          <li><a href="quick_start/">Quick Start</a></li>
+          <li><a href="usage/">Usage</a></li>
+          <li><a href="FAQ/">FAQs</a></li>
+        </ul>
       </nav>
+      <p class="sidebar-section-title">Links</p>
+      <nav>
+        <ul>
+          <li><a href="https://pypi.org/project/imdby" target="_blank" rel="noopener">PyPI package</a></li>
+          <li><a href="https://github.com/santhoshse7en/imdby" target="_blank" rel="noopener">Source on GitHub</a></li>
+        </ul>
+      </nav>
+    </aside>
 
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href=".">Docs</a> &raquo;</li>
-    
-      
-    
-    <li>Home</li>
-    <li class="wy-breadcrumbs-aside">
-      
-    </li>
-  </ul>
-  
-  <hr/>
-</div>
-          <div role="main">
-            <div class="section">
-              
-                <p><a href="https://pypi.org/project/imdby"><img alt="PyPI Version" src="https://img.shields.io/pypi/v/imdby.svg?style=flat-square" /></a>
-<a href="https://pypi.python.org/pypi/imdby/"><img alt="License" src="https://img.shields.io/pypi/l/imdby.svg?style=flat-square" /></a>
-<a href="https://santhoshse7en.github.io/imdby_doc"><img alt="Documentation Status" src="https://readthedocs.org/projects/pip/badge/?version=latest&amp;style=flat-square" /></a></p>
-<h3 id="imdby">imdby</h3>
-<p><strong>imdby</strong> is a Python package useful to retrieve and manage the data of the <a href="https://www.imdb.com/">IMDb</a> movie database about movies, person, characters, companies, events and news.</p>
-<table>
-<thead>
-<tr>
-<th align="left">Source</th>
-<th align="left">Link</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">PyPI:</td>
-<td align="left">https://pypi.org/project/imdby/</td>
-</tr>
-<tr>
-<td align="left">Repository:</td>
-<td align="left">https://github.com/santhoshse7en/imdby/</td>
-</tr>
-<tr>
-<td align="left">Documentation:</td>
-<td align="left">https://santhoshse7en.github.io/imdby_doc/</td>
-</tr>
-</tbody>
-</table>
-<h3 id="main-features">Main features</h3>
-<ul>
-<li>
-<p><strong>imdby</strong> is a Python package useful to retrieve and manage the data of the IMDb movie database about movies, person, characters, companies, events and news.</p>
-</li>
-<li>
-<p>Sentiment Analysis included for IMDb user reviews.</p>
-</li>
-<li>
-<p>written in Python 3 (compatible with Python 2.7)</p>
-</li>
-<li>
-<p>platform-independent</p>
-</li>
-<li>
-<p>can retrieve data from both the IMDb's web server, or a local copy of the database</p>
-</li>
-<li>
-<p>simple and complete API</p>
-</li>
-</ul>
-<h3 id="installation">Installation</h3>
-<p>Whenever possible, please use the latest version from the repository:</p>
-<pre><code class="bash">pip install git+https://github.com/santhoshse7en/imdby
-</code></pre>
+    <main class="content">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href=".">Docs</a> &raquo; Home</nav>
 
-<p>But if you want, you can also install the latest release from PyPI:</p>
-<pre><code class="bash">pip install imdby
-</code></pre>
+      <article class="prose">
+        <div class="badges">
+          <a href="https://pypi.org/project/imdby"><img alt="PyPI Version" src="https://img.shields.io/pypi/v/imdby.svg?style=flat-square"></a>
+          <a href="https://pypi.python.org/pypi/imdby/"><img alt="License" src="https://img.shields.io/pypi/l/imdby.svg?style=flat-square"></a>
+          <a href="https://santhoshse7en.github.io/imdby_doc"><img alt="Documentation Status" src="https://readthedocs.org/projects/pip/badge/?version=latest&amp;style=flat-square"></a>
+        </div>
 
-<h3 id="example">Example</h3>
-<p>Here’s an example that demonstrates how to use imdby:</p>
-<pre><code class="python"># create an instance of the IMDb class
+        <h3 id="imdby">imdby</h3>
+        <p><strong>imdby</strong> is a Python package useful to retrieve and manage the data of the <a href="https://www.imdb.com/">IMDb</a> movie database about movies, person, characters, companies, events and news.</p>
+
+        <table>
+          <thead><tr><th>Source</th><th>Link</th></tr></thead>
+          <tbody>
+            <tr><td>PyPI:</td><td><a href="https://pypi.org/project/imdby/">https://pypi.org/project/imdby/</a></td></tr>
+            <tr><td>Repository:</td><td><a href="https://github.com/santhoshse7en/imdby/">https://github.com/santhoshse7en/imdby/</a></td></tr>
+            <tr><td>Documentation:</td><td><a href="https://santhoshse7en.github.io/imdby_doc/">https://santhoshse7en.github.io/imdby_doc/</a></td></tr>
+          </tbody>
+        </table>
+
+        <h3 id="main-features">Main features</h3>
+        <ul>
+          <li><strong>imdby</strong> is a Python package useful to retrieve and manage the data of the IMDb movie database about movies, person, characters, companies, events and news.</li>
+          <li>Sentiment Analysis included for IMDb user reviews.</li>
+          <li>written in Python 3 (compatible with Python 2.7)</li>
+          <li>platform-independent</li>
+          <li>can retrieve data from both the IMDb's web server, or a local copy of the database</li>
+          <li>simple and complete API</li>
+        </ul>
+
+        <h3 id="installation">Installation</h3>
+        <p>Whenever possible, please use the latest version from the repository:</p>
+        <pre><code class="bash">pip install git+https://github.com/santhoshse7en/imdby</code></pre>
+        <p>But if you want, you can also install the latest release from PyPI:</p>
+        <pre><code class="bash">pip install imdby</code></pre>
+
+        <h3 id="example">Example</h3>
+        <p>Here's an example that demonstrates how to use imdby:</p>
+        <pre><code class="python"># create an instance of the IMDb class
 from imdb.imdb import IMDb
 
 # create an instance of the IMDb class
@@ -170,60 +117,21 @@ for director in cast.directors:
 
 # search for a person name
 people = ia.search_person('Simon Baker')
-print(people.person_id, people.person_name)
-</code></pre>
-              
-            </div>
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="usage/" class="btn btn-neutral float-right" title="Usage">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-    </div>
-  
+print(people.person_id, people.person_name)</code></pre>
+      </article>
 
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-    
+      <footer class="page-nav">
+        <span></span>
+        <a class="next" href="quick_start/"><small>Next</small>Quick Start &rarr;</a>
+      </footer>
+    </main>
   </div>
 
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
-      
-        </div>
-      </div>
+  <footer class="site-footer">
+    <p>Documentation built with <a href="https://www.mkdocs.org/" target="_blank" rel="noopener">MkDocs</a><span class="sep">&middot;</span><a href="https://pypi.org/project/imdby">PyPI</a><span class="sep">&middot;</span><a href="https://github.com/santhoshse7en/imdby">GitHub</a></p>
+  </footer>
 
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" aria-label="versions">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-      
-      
-        <span style="margin-left: 15px"><a href="usage/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
-</div>
-    <script>var base_url = '.';</script>
-    <script src="js/theme.js" defer></script>
-      <script src="search/main.js" defer></script>
-    <script defer>
-        window.onload = function () {
-            SphinxRtdTheme.Navigation.enable(true);
-        };
-    </script>
-
+  <script src="js/nav.js"></script>
+  <script src="search/main.js" defer></script>
 </body>
 </html>
-
-<!--
-MkDocs version : 1.1.2
-Build Date UTC : 2020-05-23 15:18:51.391503+00:00
--->

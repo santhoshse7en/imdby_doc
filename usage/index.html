@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Usage guide for the imdby Python package — searching and retrieving IMDb data.">
+  <meta name="description" content="Complete method reference for imdby — search, title details, and IMDb charts.">
   <link rel="shortcut icon" href="../img/favicon.ico">
   <title>Usage — imdby</title>
 
@@ -52,7 +52,9 @@
             <a href=".">Usage</a>
             <ul class="sub">
               <li><a href="#searching">Searching</a></li>
-              <li><a href="#retrieving">Retrieving</a></li>
+              <li><a href="#title-details">Title details</a></li>
+              <li><a href="#charts-and-listings">Charts and listings</a></li>
+              <li><a href="#notes">Notes</a></li>
             </ul>
           </li>
           <li><a href="../FAQ/">FAQs</a></li>
@@ -71,55 +73,63 @@
       <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="..">Docs</a> &raquo; Usage</nav>
 
       <article class="prose">
-        <h1 id="quickstart">Quickstart</h1>
-        <p>The first thing to do is to import imdb and call the <code>imdb.IMDb</code> function to get an access object through which IMDb data can be retrieved:</p>
-        <pre><code class="python">&gt;&gt;&gt; import imdb
-&gt;&gt;&gt; ia = imdb.IMDb()</code></pre>
+        <h1 id="usage">Usage</h1>
+        <p>All methods are called on an <code>IMDb()</code> instance:</p>
+        <pre><code class="python">from imdb.imdb import IMDb
 
-        <h3 id="searching">Searching</h3>
-        <p>You can use the search_movie method of the access object to search for movies with a given (or similar) title. For example, to search for movies with titles like "matrix":</p>
-        <pre><code class="python">&gt;&gt;&gt; movies = ia.search_movie('endgame')
-&gt;&gt;&gt; print('Movie ID: %s, Movie Name: %s' % (movies.title_id, movies.title_name))
+ia = IMDb()</code></pre>
 
-'Movie ID: tt4154796, Movie Name: Avengers: Endgame'</code></pre>
-        <p>Similarly, you can search for people and companies using the search_person and the search_company methods:</p>
-        <pre><code class="python">&gt;&gt;&gt; people = ia.search_person('robert downey')
-&gt;&gt;&gt; print('Person ID: %s, Person Name: %s' % (people.person_id, people.person_name))
+        <h3 id="searching">Searching <small>(interactive — resolves a name to an IMDb ID)</small></h3>
+        <p>Search methods print up to 20 numbered suggestions to the console and use <code>input()</code> to read your selection.</p>
+        <table>
+          <thead><tr><th>Method</th><th>Returns (key attributes)</th></tr></thead>
+          <tbody>
+            <tr><td><code>search_movie(text)</code></td><td><code>.title_name</code>, <code>.title_id</code></td></tr>
+            <tr><td><code>search_person(text)</code></td><td><code>.name</code>, <code>.person_id</code></td></tr>
+            <tr><td><code>search_company(text)</code></td><td><code>.company_name</code>, <code>.company_id</code></td></tr>
+            <tr><td><code>search_event(text)</code></td><td><code>.event_name</code>, <code>.event_id</code></td></tr>
+            <tr><td><code>search_character(text)</code></td><td><code>.character_name</code>, <code>.character_id</code></td></tr>
+            <tr><td><code>search_news(text)</code></td><td><code>.news_title</code>, <code>.news_id</code></td></tr>
+          </tbody>
+        </table>
 
-'Person ID: nm0000375, Person Name: Robert Downey Jr.'</code></pre>
-        <pre><code class="python">&gt;&gt;&gt; companies = ia.search_company('rko')
-&gt;&gt;&gt; print('Company ID: %s, Company Name: %s' % (companies.company_id, companies.company_name))
+        <h3 id="title-details">Title details <small>(take a title_id, e.g. 'tt4154796')</small></h3>
+        <table>
+          <thead><tr><th>Method</th><th>Data</th></tr></thead>
+          <tbody>
+            <tr><td><code>movie(title_id)</code></td><td>Title, rating, votes, genres, metascore, budget/gross, storyline</td></tr>
+            <tr><td><code>plot(title_id)</code></td><td>Plot summary and synopsis</td></tr>
+            <tr><td><code>plot_keywords(title_id)</code></td><td>Plot keyword list</td></tr>
+            <tr><td><code>taglines(title_id)</code></td><td>Taglines list</td></tr>
+            <tr><td><code>full_cast_and_crew(title_id)</code></td><td>Directors, writers, cast, producers, music, cinematography, editing, casting</td></tr>
+            <tr><td><code>company(title_id)</code></td><td>Production companies, distributors, special effects, other companies</td></tr>
+            <tr><td><code>release_info(title_id)</code></td><td>Release dates by country, India release date, "Also Known As" titles</td></tr>
+            <tr><td><code>ratings(title_id)</code></td><td>Rating breakdown by demographic and region</td></tr>
+            <tr><td><code>parental_guide(title_id)</code></td><td>MPAA rating, certificates, and content advisories (nudity, violence, profanity, alcohol, frightening, spoilers)</td></tr>
+            <tr><td><code>technical_spec(title_id)</code></td><td>Runtime, sound mix, color, aspect ratio, camera, film format</td></tr>
+            <tr><td><code>critic_reviews(title_id)</code></td><td>Critic review scores and summaries</td></tr>
+            <tr><td><code>external_reviews(title_id)</code></td><td>Links to external critic reviews</td></tr>
+            <tr><td><code>external_sites(title_id)</code></td><td>Official sites, miscellaneous sites, photos, video links</td></tr>
+            <tr><td><code>user_reviews(title_id, remove_spoiler)</code></td><td>User reviews with per-review and aggregate sentiment scores (uses Selenium/Chrome)</td></tr>
+          </tbody>
+        </table>
 
-'Company ID: co0051941, Company Name: Marvel Studios'</code></pre>
-        <p>As the examples indicate, the results are suggestion of Movie, Person, or Company in order. These behave like multiple choice, i.e. they can be queried by object data you want to obtain from your selection:</p>
-        <pre><code class="python">&gt;&gt;&gt; movies.title_name
-'Avengers: Endgame'
-&gt;&gt;&gt; people.person_name
-'Robert Downey Jr.'
-&gt;&gt;&gt; companies.company_name
-'Marvel Studios'</code></pre>
-        <p>Movie, person, and company objects have id attributes which -when fetched through the IMDb web server- store the IMDb id of the object:</p>
-        <pre><code class="python">&gt;&gt;&gt; movies.title_id
-'tt4154796'
-&gt;&gt;&gt; people[0].personID
-'nm0000375'
-&gt;&gt;&gt; companies[0].companyID
-'co0051941'</code></pre>
+        <h3 id="charts-and-listings">Charts and listings <small>(no arguments)</small></h3>
+        <table>
+          <thead><tr><th>Method</th><th>Data</th></tr></thead>
+          <tbody>
+            <tr><td><code>imdb_charts()</code></td><td>Top 250, Top 250 (English), Bottom 100, box office, MovieMeter, Top TV, TVMeter</td></tr>
+            <tr><td><code>top_india_charts()</code></td><td>Top rated Indian, Tamil, Telugu, and Malayalam movies</td></tr>
+            <tr><td><code>trending_now_in_india()</code></td><td>Upcoming, popular Tamil/Telugu/India/global/Hindi titles</td></tr>
+            <tr><td><code>upcoming_releases()</code></td><td>Interactive: pick a region, then lists upcoming releases there</td></tr>
+          </tbody>
+        </table>
 
-        <h3 id="retrieving">Retrieving</h3>
-        <p>If you know the IMDb id of a movie, you can use the movie method to retrieve its data. For example, the movie "The Untouchables" by Brian De Palma has the id "tt4154796":</p>
-        <pre><code class="python">&gt;&gt;&gt; movie = ia.movie('tt0094226')
-&gt;&gt;&gt; movie.title
-
-'The Untouchables'</code></pre>
-        <p>Similarly, the get_person and the get_company methods can be used for retrieving Person and Company data:</p>
-        <pre><code class="python">&gt;&gt;&gt; person = ia.person('nm0000206')
-&gt;&gt;&gt; print('Name: %s, DOB: %s' % (person.title, person.dob))
-
-'Name: Keanu Reeves, DOB: 1964-9-2'</code></pre>
-        <pre><code class="python">&gt;&gt;&gt; company = ia.company('co0017902')
-&gt;&gt;&gt; company.name
-'Pixar Animation Studios'</code></pre>
+        <h3 id="notes">Notes</h3>
+        <ul>
+          <li><code>user_reviews(title_id, remove_spoiler)</code> uses Selenium to load additional review pages, and requires a local Google Chrome install — the matching chromedriver is downloaded automatically by Selenium's built-in Selenium Manager, so no separate driver package is needed.</li>
+          <li>Chart and listing methods (<code>imdb_charts()</code>, <code>top_india_charts()</code>, <code>trending_now_in_india()</code>) return <code>pandas</code> DataFrames; title and search methods return plain Python objects with named attributes.</li>
+        </ul>
       </article>
 
       <footer class="page-nav">

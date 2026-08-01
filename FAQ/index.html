@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Frequently asked questions about the imdby Python package.">
+  <meta name="description" content="Common questions about imdby — API keys, Python versions, interactive search, Selenium, sentiment analysis, and licensing.">
   <link rel="shortcut icon" href="../img/favicon.ico">
   <title>FAQs — imdby</title>
 
@@ -67,20 +67,29 @@
       <article class="prose">
         <h1 id="frequently-asked-questions">Frequently Asked Questions</h1>
 
-        <p><strong>Q: Is IMDbPY compatible with Python 3?</strong></p>
-        <p>A: Yes. Versions after 6.0 are compatible with Python 3.x, but should also work with Python 2.7. If you need an older, unmaintained, version for Python, see the imdbpy-legacy branch in the repository.</p>
+        <p><strong>Q: Does imdby need an official IMDb API key?</strong></p>
+        <p>A: No. imdby scrapes IMDb's own pages directly, so there's no API key, approval process, or rate-limit request needed.</p>
 
-        <p><strong>Q: Importing the data using the 's3' method, are the imdbID available?</strong></p>
-        <p>A: Yes! The data from <a href="https://datasets.imdbws.com/" target="_blank" rel="noopener">https://datasets.imdbws.com/</a> contains the original IDs.</p>
+        <p><strong>Q: Which Python versions are supported?</strong></p>
+        <p>A: Python 3.10 and newer — imdby is tested through Python 3.14.</p>
 
-        <p><strong>Q: Importing the data using the old 'sql' method, are the imdbID available?</strong></p>
-        <p>A: No. The old 'sql' method generates sequential imdbIDs that are unrelated to the ones used by the web site.</p>
+        <p><strong>Q: Why do the <code>search_*</code> methods ask me to type a number instead of just returning a result?</strong></p>
+        <p>A: <code>search_movie()</code>, <code>search_person()</code>, <code>search_company()</code>, <code>search_event()</code>, <code>search_character()</code>, and <code>search_news()</code> are interactive — they print up to 20 numbered matches to the console and use <code>input()</code> to read the serial number(s) of the one(s) you want, then resolve those to names and IMDb ids. <code>upcoming_releases()</code> works the same way for picking a region.</p>
 
-        <p><strong>Q: I have an URL (of a movie, person or something else), how can I get a Movie/Person/… instance?</strong></p>
-        <p>A: Import the imdb.helpers module and use the get_byURL function.</p>
+        <p><strong>Q: Why does <code>user_reviews()</code> need Google Chrome installed?</strong></p>
+        <p>A: <code>user_reviews()</code> uses Selenium to load additional review pages beyond the first. It requires a local Google Chrome install; the matching chromedriver is downloaded automatically by Selenium's built-in Selenium Manager, so no separate driver package is needed.</p>
 
-        <p><strong>Q: I'm writing an interface based on IMDbPY and I have problems handling encoding, chars conversions, replacements of references and so on.</strong></p>
-        <p>A: See the many functions in the imdb.helpers module.</p>
+        <p><strong>Q: How are user review sentiment scores calculated?</strong></p>
+        <p>A: Each review is scored with both <strong>VADER</strong> (via <code>nltk</code>) and <strong>TextBlob</strong> sentiment analysis. The VADER lexicon downloads automatically the first time it's needed.</p>
+
+        <p><strong>Q: Do results come back as plain objects or DataFrames?</strong></p>
+        <p>A: Both, depending on the method. Title and search methods return plain Python objects with named attributes, while chart and listing methods (<code>imdb_charts()</code>, <code>top_india_charts()</code>, <code>trending_now_in_india()</code>) return <code>pandas</code> DataFrames.</p>
+
+        <p><strong>Q: What license is imdby released under?</strong></p>
+        <p>A: <a href="https://github.com/santhoshse7en/imdby/blob/master/LICENSE" target="_blank" rel="noopener">MIT</a>.</p>
+
+        <p><strong>Q: Where do I report a bug or request a feature?</strong></p>
+        <p>A: Open an issue on <a href="https://github.com/santhoshse7en/imdby/issues" target="_blank" rel="noopener">GitHub</a>.</p>
       </article>
 
       <footer class="page-nav">

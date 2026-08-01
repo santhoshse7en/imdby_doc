@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="imdby is a Python package to retrieve and manage IMDb movie database data — movies, people, characters, companies, events and news.">
+  <meta name="description" content="Scrape IMDb movies, people, companies, charts, and reviews in Python — no official API required.">
   <link rel="shortcut icon" href="img/favicon.ico">
-  <title>imdby — Python IMDb toolkit</title>
+  <title>imdby — Scrape IMDb from Python</title>
 
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" media="(prefers-color-scheme: light)">
@@ -67,12 +67,13 @@
       <article class="prose">
         <div class="badges">
           <a href="https://pypi.org/project/imdby"><img alt="PyPI Version" src="https://img.shields.io/pypi/v/imdby.svg?style=flat-square"></a>
-          <a href="https://pypi.python.org/pypi/imdby/"><img alt="License" src="https://img.shields.io/pypi/l/imdby.svg?style=flat-square"></a>
-          <a href="https://santhoshse7en.github.io/imdby_doc"><img alt="Documentation Status" src="https://readthedocs.org/projects/pip/badge/?version=latest&amp;style=flat-square"></a>
+          <a href="https://pypi.org/project/imdby"><img alt="Python Versions" src="https://img.shields.io/pypi/pyversions/imdby.svg?style=flat-square"></a>
+          <a href="https://pepy.tech/project/imdby"><img alt="Downloads" src="https://static.pepy.tech/badge/imdby/month"></a>
+          <a href="https://github.com/santhoshse7en/imdby/blob/master/LICENSE"><img alt="License: MIT" src="https://img.shields.io/pypi/l/imdby.svg?style=flat-square"></a>
         </div>
 
         <h3 id="imdby">imdby</h3>
-        <p><strong>imdby</strong> is a Python package useful to retrieve and manage the data of the <a href="https://www.imdb.com/">IMDb</a> movie database about movies, person, characters, companies, events and news.</p>
+        <p><strong>imdby</strong> scrapes the <a href="https://www.imdb.com/">IMDb</a> database from Python — movies, people, companies, events, characters, news, charts, and reviews — no official API key required.</p>
 
         <table>
           <thead><tr><th>Source</th><th>Link</th></tr></thead>
@@ -83,41 +84,50 @@
           </tbody>
         </table>
 
-        <h3 id="main-features">Main features</h3>
+        <h3 id="why-imdby">Why imdby?</h3>
+        <p>IMDb doesn't offer a public API, and existing solutions are often abandoned or limited to a narrow slice of the site. <strong>imdby</strong> scrapes IMDb's own pages directly and hands the result back as ready-to-use Python objects and <code>pandas</code> DataFrames — no scraping boilerplate, no API key, no rate-limit approval process.</p>
+
+        <h3 id="main-features">Features</h3>
         <ul>
-          <li><strong>imdby</strong> is a Python package useful to retrieve and manage the data of the IMDb movie database about movies, person, characters, companies, events and news.</li>
-          <li>Sentiment Analysis included for IMDb user reviews.</li>
-          <li>written in Python 3 (compatible with Python 2.7)</li>
-          <li>platform-independent</li>
-          <li>can retrieve data from both the IMDb's web server, or a local copy of the database</li>
-          <li>simple and complete API</li>
+          <li>Retrieve IMDb data for a title: overview, plot, plot keywords, taglines, full cast &amp; crew, company credits, release info, ratings breakdown, parental guide, technical specs, critic reviews, and external reviews/sites.</li>
+          <li>Retrieve IMDb charts: Top 250, Top 250 (English), Bottom 100, box office, MovieMeter/TVMeter, Top TV, and India-specific charts (Tamil, Telugu, Malayalam, trending, upcoming).</li>
+          <li>Scrape a title's user reviews and score them with <strong>VADER</strong> and <strong>TextBlob</strong> sentiment analysis.</li>
+          <li>Look up IMDb IDs for a title, person, company, event, character, or news item by search text.</li>
+          <li>Results come back as plain Python objects and <code>pandas</code> DataFrames, ready for further analysis.</li>
+          <li>Compatible with Python 3.10+ (tested through Python 3.14).</li>
         </ul>
 
         <h3 id="installation">Installation</h3>
-        <p>Whenever possible, please use the latest version from the repository:</p>
-        <pre><code class="bash">pip install git+https://github.com/santhoshse7en/imdby</code></pre>
-        <p>But if you want, you can also install the latest release from PyPI:</p>
+        <p>Install the latest release from PyPI:</p>
         <pre><code class="bash">pip install imdby</code></pre>
+        <p>Or install from GitHub for the latest, unreleased changes:</p>
+        <pre><code class="bash">pip install git+https://github.com/santhoshse7en/imdby</code></pre>
 
         <h3 id="example">Example</h3>
         <p>Here's an example that demonstrates how to use imdby:</p>
-        <pre><code class="python"># create an instance of the IMDb class
-from imdb.imdb import IMDb
+        <pre><code class="python">from imdb.imdb import IMDb
 
-# create an instance of the IMDb class
 ia = IMDb()
 
-# get a movie
+# Fetch full cast and crew of a movie by IMDb ID
 cast = ia.full_cast_and_crew('tt4154796')
 
-# print the directors of the movie
 print('Directors:')
-for director in cast.directors:
+for director in cast.directors_name:
     print(director)
 
-# search for a person name
+# Fetch core movie details
+movie = ia.movie('tt4154796')
+print(movie.title, movie.rating, movie.genre)
+
+# Browse the IMDb Top 250 as a DataFrame
+charts = ia.imdb_charts()
+print(charts.top_rated_movies_df.head())
+
+# Search for a person (prompts for a serial number from the printed matches)
 people = ia.search_person('Simon Baker')
-print(people.person_id, people.person_name)</code></pre>
+print(people.person_id, people.name)</code></pre>
+        <p>The <code>search_*</code> methods (<code>search_movie</code>, <code>search_person</code>, <code>search_company</code>, <code>search_event</code>, <code>search_character</code>, <code>search_news</code>) and <code>upcoming_releases()</code> are interactive — they print numbered suggestions to the console and use <code>input()</code> to read your selection. See <a href="quick_start/">Quick Start</a> for a walkthrough, or <a href="usage/">Usage</a> for the full API reference.</p>
       </article>
 
       <footer class="page-nav">
